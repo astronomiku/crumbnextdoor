@@ -158,19 +158,21 @@ white-space: nowrap;
       max-width: 520px;
     }
 
-  .main-logo {
+.main-logo {
   width: min(560px, 90vw);
   display: block;
-  margin: 0 auto 24px;
+  margin: 0 auto 10px;
 }
 
-    .hero-sub {
-      font-size: 1rem;
-      color: #8F9C5A;
-      max-width: 460px;
-      line-height: 1.7;
-      margin: 0 auto 36px;
-    }
+.hero-sub {
+  font-size: 1.15rem;
+  color: #8F9C5A;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  max-width: 540px;
+  line-height: 1.6;
+  margin: 0 auto 42px;
+}
 
     .btn {
       display: inline-flex;
@@ -397,9 +399,16 @@ white-space: nowrap;
   transition: 0.2s;
 }
 
-.order-strip:hover {
-  background: var(--caramel);
+.order-strip {
+  transition: background 0.25s ease,
+              transform 0.2s ease;
 }
+
+.order-strip:hover {
+  background: #8F9C5A;
+  transform: translateY(-2px);
+}
+    
     #contact {
   background: white;
   padding: 100px 48px;
