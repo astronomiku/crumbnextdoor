@@ -28,6 +28,7 @@
       --mid: #7A6E52;
       --paper: #FBF7EE;
       --sage: #C8CCAD;
+      --chocolate: #4A2C1D;
     }
 
     body {
@@ -52,13 +53,13 @@
       border-bottom: 1px solid rgba(59,56,39,0.08);
     }
 
-    .nav-logo {
-      font-family: 'Caveat', cursive;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-    }
+.nav-logo {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--chocolate);
+  text-decoration: none;
+}
 
     .nav-links {
       display: flex;
@@ -75,10 +76,12 @@
       transition: 0.2s;
     }
 
-    .nav-links a:hover,
+    .nav-links a:hover {
+  color: var(--chocolate);
+}
     .nav-links a.active {
-      color: var(--ink);
-      border-bottom: 2px solid var(--ink);
+      color: var(--chocolate);
+      border-bottom: 2px solid var(--chocolate);
     }
 
     .hero-ticker {
@@ -245,13 +248,15 @@
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--caramel);
+      color: var(--chocolate);
       font-weight: 500;
       margin-bottom: 20px;
     }
 
     .about-text h2,
-    .menu-header h2,
+    .menu-header h2 {
+  color: var(--chocolate);
+}
     .order-inner h2 {
       font-family: 'Caveat', cursive;
       line-height: 0.9;
@@ -259,6 +264,7 @@
     }
 
     .about-text h2 {
+      color: var(--chocolate);
       font-size: clamp(3rem, 5vw, 5rem);
       margin-bottom: 32px;
     }
@@ -401,7 +407,7 @@
     .order-inner h2 em {
       font-family: 'DM Serif Display', serif;
       font-style: italic;
-      color: var(--caramel);
+      color: var(--#B07A4A);
     }
 
     .order-inner p {
