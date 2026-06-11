@@ -304,9 +304,17 @@
       align-items: center;
     }
 
-    .about-image-wrap {
-      position: relative;
-    }
+   .about-image-wrap {
+  position: relative;
+}
+
+.owners-photo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
 
     .about-image-wrap img,
     .about-img-placeholder {
@@ -317,35 +325,7 @@
       border-radius: 4px;
     }
 
-    .about-img-placeholder {
-      background: var(--blush);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Caveat', cursive;
-      font-size: 1.4rem;
-      color: var(--mid);
-    }
-
-    .about-badge {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      width: 90px;
-      height: 90px;
-      background: var(--caramel);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: 'Caveat', cursive;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-      box-shadow: 0 4px 16px rgba(201,168,130,0.4);
-    }
+  
 
     .about-text .section-label {
       font-size: 0.75rem;
@@ -514,34 +494,9 @@
 .hero-food {
   position: absolute;
   width: 220px;
-  max-width: 24vw;
   height: 220px;
   object-fit: contain;
   display: block;
-}
-
-.food-1 {
-  left: 7%;
-  top: 10%;
-  transform: rotate(-7deg);
-}
-
-.food-2 {
-  right: 8%;
-  top: 13%;
-  transform: rotate(6deg);
-}
-
-.food-3 {
-  left: 10%;
-  bottom: 10%;
-  transform: rotate(4deg);
-}
-
-.food-4 {
-  right: 11%;
-  bottom: 9%;
-  transform: rotate(-5deg);
 }
 
 .main-logo {
@@ -1105,6 +1060,30 @@
           ? 'var(--ink)' : '';
       });
     });
+
+    // Random hero food placement on every refresh
+const heroFoods = document.querySelectorAll('.hero-food');
+
+const positions = [
+  { left: '6%', top: '10%' },
+  { left: '70%', top: '8%' },
+  { left: '8%', top: '58%' },
+  { left: '72%', top: '56%' },
+  { left: '38%', top: '12%' },
+  { left: '18%', top: '34%' },
+  { left: '62%', top: '35%' }
+];
+
+const shuffledPositions = [...positions].sort(() => Math.random() - 0.5);
+
+heroFoods.forEach((food, index) => {
+  const pos = shuffledPositions[index];
+  const rotate = Math.floor(Math.random() * 18) - 9;
+
+  food.style.left = pos.left;
+  food.style.top = pos.top;
+  food.style.transform = `rotate(${rotate}deg)`;
+});
   </script>
 
 </body>
