@@ -6,6 +6,8 @@
   <title>Crumb Next Door</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -16,238 +18,257 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --cream: #f7f2e6;
+      --sage: #d9ddc0;
+      --pink: #e6c9c9;
+      --olive: #6d6a47;
+      --dark-olive: #46442f;
+      --brown: #8a6c54;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f6f1dc;
-      color: #283314;
-      line-height: 1.6;
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(217, 221, 192, 0.95) 0%, transparent 28%),
+        radial-gradient(circle at 86% 24%, rgba(230, 201, 201, 0.9) 0%, transparent 25%),
+        radial-gradient(circle at 20% 78%, rgba(230, 201, 201, 0.7) 0%, transparent 22%),
+        radial-gradient(circle at 82% 88%, rgba(217, 221, 192, 0.85) 0%, transparent 28%),
+        var(--cream);
+      color: var(--olive);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
       min-height: 100vh;
-      padding: 28px 24px;
+      padding: 28px 24px 80px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      background:
-        radial-gradient(circle at top left, #d7ff73 0, transparent 32%),
-        radial-gradient(circle at bottom right, #ff8fb3 0, transparent 28%),
-        #f6f1dc;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      color: var(--olive);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(109, 106, 71, 0.18);
+      padding-bottom: 18px;
     }
 
     nav a {
-      color: #283314;
       text-decoration: none;
-      margin-left: 18px;
+      margin-left: 20px;
     }
 
     .brand {
-      color: #52612b;
+      color: var(--dark-olive);
     }
 
     .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      max-width: 980px;
+      max-width: 900px;
       margin: auto;
-      padding: 70px 0;
+      position: relative;
     }
 
     .hero-logo {
-      width: min(440px, 88vw);
-      margin: 0 auto 34px;
+      width: min(470px, 86vw);
       display: block;
-      mix-blend-mode: multiply;
+      margin-bottom: 34px;
     }
 
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(3.8rem, 11vw, 9rem);
-      line-height: 0.85;
-      letter-spacing: -0.08em;
-      margin-bottom: 28px;
-      color: #283314;
+      font-family: "Caveat", cursive;
+      color: var(--olive);
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 0.82;
+      font-weight: 700;
+      margin-bottom: 24px;
     }
 
     .hero p {
-      font-size: clamp(1.2rem, 2.5vw, 2rem);
-      margin-bottom: 12px;
-      font-weight: bold;
+      font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+      color: var(--dark-olive);
+      max-width: 620px;
     }
 
     .location {
-      display: inline-block;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
       margin-top: 22px;
-      padding: 10px 18px;
-      border: 2px solid #283314;
-      border-radius: 999px;
-      background: #fff8df;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--brown);
     }
 
     .button {
       display: inline-block;
       margin-top: 34px;
-      padding: 15px 28px;
+      padding: 13px 26px;
       border-radius: 999px;
-      background: #283314;
-      color: #fff8df;
+      border: 1.5px solid var(--olive);
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 6px 6px 0 #d7ff73;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 8px 8px 0 #ff8fb3;
+      color: var(--dark-olive);
+      background: rgba(247, 242, 230, 0.55);
+      font-weight: 600;
     }
 
     section {
-      padding: 90px 24px;
       max-width: 1100px;
       margin: auto;
+      padding: 100px 24px;
+      position: relative;
     }
 
     h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin-bottom: 34px;
+      font-family: "Caveat", cursive;
+      font-size: clamp(4rem, 9vw, 8rem);
+      color: var(--olive);
+      font-weight: 700;
+      line-height: 0.85;
       text-align: center;
-      color: #283314;
+      margin-bottom: 45px;
     }
 
-    .about-section {
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      max-width: none;
-      display: flex;
+    .doodle {
+      position: absolute;
+      color: var(--olive);
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .doodle.star {
+      font-family: "Caveat", cursive;
+      font-size: 3rem;
+    }
+
+    .doodle.line {
+      width: 120px;
+      height: 40px;
+      border-bottom: 2px solid var(--olive);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 55px;
       align-items: center;
-      justify-content: center;
-      background: #d7ff73;
     }
 
     .owners-photo {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.18;
-      filter: grayscale(100%);
-    }
-
-    .about-overlay {
-      position: absolute;
-      inset: 0;
-      background: #d7ff73;
-      opacity: 0.72;
-    }
-
-    .about-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1000px;
-      padding: 90px 24px;
-      margin: auto;
+      border-radius: 42% 58% 48% 52% / 52% 42% 58% 48%;
+      filter: sepia(12%) saturate(85%);
+      opacity: 0.9;
     }
 
     .about-text {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      font-size: clamp(1.1rem, 2vw, 1.45rem);
-      font-weight: 500;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: var(--dark-olive);
     }
 
     .about-text p {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
-    #bakes {
-      background: #f6f1dc;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      margin-top: 34px;
+    .oven {
+      max-width: 920px;
+      margin: auto;
     }
 
     .product {
-      background: #fff8df;
-      border: 2px solid #283314;
-      border-radius: 30px;
-      padding: 16px;
-      box-shadow: 10px 10px 0 #d7ff73;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin: 80px 0;
+      position: relative;
     }
 
-    .product:nth-child(2) {
-      box-shadow: 10px 10px 0 #ff8fb3;
+    .product:nth-child(even) .product-image {
+      order: 2;
     }
 
     .product img {
       width: 100%;
       display: block;
-      border-radius: 20px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      border-radius: 42% 58% 52% 48% / 48% 42% 58% 52%;
+      filter: sepia(10%) saturate(90%);
+    }
+
+    .product-copy {
+      text-align: center;
     }
 
     .product h3 {
-      font-family: Georgia, serif;
-      font-size: 2rem;
-      margin-top: 16px;
+      font-family: "Caveat", cursive;
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      color: var(--olive);
+      line-height: 0.9;
+      margin-bottom: 12px;
+    }
+
+    .product p {
+      color: var(--brown);
+      font-size: 1.05rem;
+      max-width: 360px;
+      margin: auto;
+    }
+
+    .sketch-line {
+      width: 190px;
+      height: 30px;
+      border-bottom: 2px solid rgba(109, 106, 71, 0.55);
+      border-radius: 50%;
+      margin: 18px auto 0;
+      transform: rotate(-3deg);
+    }
+
+    .order-section {
       text-align: center;
-      color: #283314;
+      max-width: 850px;
     }
 
-    .order {
-      background: #283314;
-      color: #fff8df;
-      border-radius: 36px;
-      padding: 58px 28px;
-      text-align: center;
-      box-shadow: 12px 12px 0 #d7ff73;
+    .order-section h2 {
+      margin-bottom: 28px;
     }
 
-    .order h2 {
-      color: #fff8df;
-    }
-
-    .order p {
-      font-size: 1.25rem;
+    .order-section p {
+      color: var(--dark-olive);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
       margin-bottom: 14px;
     }
 
-    .order a {
-      color: #d7ff73;
-      font-weight: bold;
+    .days {
+      font-family: "Caveat", cursive;
+      color: var(--olive);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.9;
+      margin: 30px 0;
     }
 
     footer {
-      padding: 36px 24px;
       text-align: center;
+      padding: 50px 24px;
+      color: var(--brown);
       font-size: 0.9rem;
-      color: #52612b;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 780px) {
       nav {
         flex-direction: column;
         gap: 14px;
@@ -258,15 +279,21 @@
       }
 
       section {
-        padding: 70px 20px;
+        padding: 80px 22px;
       }
 
-      .products {
+      .about-wrap,
+      .product {
         grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .product:nth-child(even) .product-image {
+        order: 0;
       }
 
       .hero-logo {
-        width: min(330px, 88vw);
+        width: min(350px, 88vw);
       }
     }
   </style>
@@ -279,7 +306,7 @@
       <div class="brand">Crumb Next Door</div>
       <div>
         <a href="#about">About</a>
-        <a href="#bakes">Bakes</a>
+        <a href="#oven">Oven</a>
         <a href="#order">Order</a>
       </div>
     </nav>
@@ -287,11 +314,11 @@
     <div class="hero">
       <img src="assets/logo.png" alt="Crumb Next Door logo" class="hero-logo">
 
-      <p>Three minds. One oven. Endless pastries.</p>
+      <h1>Three minds.<br>One oven.<br>Endless pastries.</h1>
 
-      <div class="location">Small-batch pastries from Parañaque</div>
+      <p>Small-batch pastries from Parañaque.</p>
 
-      <br>
+      <div class="location">Open every Tuesday · Thursday · Saturday</div>
 
       <a class="button" href="https://www.instagram.com/crumbnextdoor/" target="_blank">
         Order on Instagram
@@ -299,17 +326,14 @@
     </div>
   </header>
 
-  <section id="about" class="about-section">
-    <div class="about-overlay"></div>
+  <section id="about">
+    <div class="doodle star" style="top:70px; left:8%;">✦</div>
+    <div class="doodle line" style="bottom:70px; right:10%;"></div>
 
-    <img
-      src="assets/owners.png"
-      alt="Crumb Next Door founders"
-      class="owners-photo"
-    >
+    <h2>About us</h2>
 
-    <div class="about-content">
-      <h2>About Us.</h2>
+    <div class="about-wrap">
+      <img src="assets/owners.png" alt="Crumb Next Door founders" class="owners-photo">
 
       <div class="about-text">
         <p>
@@ -337,36 +361,54 @@
     </div>
   </section>
 
-  <section id="bakes">
-    <h2>From The Oven</h2>
+  <section id="oven">
+    <div class="doodle star" style="top:80px; right:12%;">✶</div>
 
-    <div class="products">
+    <h2>From the oven</h2>
+
+    <div class="oven">
       <div class="product">
-        <img src="assets/ubecheese.png" alt="Ube Cheese Bread">
-        <h3>Ube Cheese</h3>
+        <div class="product-image">
+          <img src="assets/ubecheese.png" alt="Ube Cheese Bread">
+        </div>
+
+        <div class="product-copy">
+          <h3>Ube Cheese</h3>
+          <p>Soft, sweet, and made for people who always want the cheesy middle piece.</p>
+          <div class="sketch-line"></div>
+        </div>
       </div>
 
       <div class="product">
-        <img src="assets/saltedbread.png" alt="Salted Bread">
-        <h3>Salted Bread</h3>
+        <div class="product-image">
+          <img src="assets/saltedbread.png" alt="Salted Bread">
+        </div>
+
+        <div class="product-copy">
+          <h3>Salted Bread</h3>
+          <p>A simple favorite with enough salt, softness, and bite to keep coming back.</p>
+          <div class="sketch-line"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="order">
-    <div class="order">
-      <h2>Order Schedule</h2>
-      <p>Open for orders every</p>
-      <p><strong>Tuesday · Thursday · Saturday</strong></p>
-      <p>
-        For menu availability and ordering instructions, message us on Instagram.
-      </p>
-      <p>
-        <a href="https://www.instagram.com/crumbnextdoor/" target="_blank">
-          @crumbnextdoor
-        </a>
-      </p>
-    </div>
+  <section id="order" class="order-section">
+    <div class="doodle star" style="top:40px; left:13%;">✦</div>
+
+    <h2>Order here</h2>
+
+    <p>Open for orders every</p>
+
+    <div class="days">Tuesday<br>Thursday<br>Saturday</div>
+
+    <p>
+      For menu availability and ordering instructions, message us on Instagram.
+    </p>
+
+    <a class="button" href="https://www.instagram.com/crumbnextdoor/" target="_blank">
+      @crumbnextdoor
+    </a>
   </section>
 
   <footer>
