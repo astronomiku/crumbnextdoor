@@ -1,0 +1,190 @@
+Based on the IG: **Crumb Next Door** is a Parañaque pastry brand with the line “three minds. one oven. endless pastries,” open for orders **Tues/Thurs/Sat**. ([Instagram][1])
+
+Use this one-page site:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crumb Next Door</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7efe3;
+      color: #2a1b12;
+      line-height: 1.5;
+    }
+
+    header {
+      min-height: 100vh;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #f3dfc4;
+    }
+
+    .logo {
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .tagline {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .sub {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    a.button {
+      text-decoration: none;
+      color: #fff;
+      background: #2a1b12;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    a.button.secondary {
+      background: transparent;
+      color: #2a1b12;
+      border: 2px solid #2a1b12;
+    }
+
+    section {
+      padding: 70px 24px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff8ef;
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid #d8b98f;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .order-box {
+      background: #2a1b12;
+      color: #fff;
+      padding: 36px;
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .order-box a {
+      color: #f3dfc4;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #6b5140;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Crumb<br>Next<br>Door</div>
+    <p class="tagline">Three minds. One oven. Endless pastries.</p>
+    <p class="sub">Small-batch pastries from Parañaque</p>
+
+    <div class="buttons">
+      <a class="button" href="https://www.instagram.com/crumbnextdoor/" target="_blank">Order on Instagram</a>
+      <a class="button secondary" href="#menu">See Menu</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>Fresh from the neighborhood</h2>
+    <p>
+      Crumb Next Door is a small pastry kitchen making baked goods with butter,
+      sugar, time, and no shortcuts. We bake in small batches and open orders
+      on selected days so everything stays fresh.
+    </p>
+  </section>
+
+  <section id="menu">
+    <h2>What we bake</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Cookies</h3>
+        <p>Big, chunky, buttery cookies made for gifting, sharing, or eating alone.</p>
+      </div>
+
+      <div class="card">
+        <h3>Pastries</h3>
+        <p>Small-batch pastries baked with care, available depending on the week’s menu.</p>
+      </div>
+
+      <div class="card">
+        <h3>Custom Boxes</h3>
+        <p>Order boxes for birthdays, thank-you gifts, office treats, or cravings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="orders">
+    <div class="order-box">
+      <h2>Open for orders</h2>
+      <p>Tuesdays, Thursdays, and Saturdays.</p>
+      <br>
+      <p>
+        Message us on Instagram:<br>
+        <a href="https://www.instagram.com/crumbnextdoor/" target="_blank">@crumbnextdoor</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Crumb Next Door · Parañaque
+  </footer>
+
+</body>
+</html>
+```
+
+[1]: https://www.instagram.com/crumbnextdoor/?utm_source=chatgpt.com "Crumb Next Door (@crumbnextdoor) · Parañaque"
