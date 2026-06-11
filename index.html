@@ -369,109 +369,57 @@ white-space: nowrap;
     text-align: center;
   }
 }
-    #order {
-      background: var(--paper);
-      padding: 120px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .order-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 640px;
-      margin: auto;
-    }
-
-    .order-inner h2 {
-      font-size: clamp(4rem, 9vw, 8rem);
-      color: var(--cream);
-      margin-bottom: 20px;
-    }
-
-    .order-inner h2 em {
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      color: #B07A4A;
-    }
-
-    .order-inner p {
-      color: var(--mid);
-      font-size: 0.97rem;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-
-    .order-days {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-    }
-
-    .order-notes {
-  margin-top: 70px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(59,56,39,0.12);
+#order {
+  background: var(--paper);
+  padding: 140px 48px;
+  text-align: center;
 }
 
-.order-notes p {
-  color: var(--mid);
-  margin-bottom: 14px;
-}
-
-.order-notes a {
-  color: var(--caramel);
-  text-decoration: none;
-  border-bottom: 1px solid var(--caramel);
+.order-inner {
+  max-width: 900px;
+  margin: auto;
 }
 
 .order-schedule {
   font-family: 'Caveat', cursive;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.95;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.9;
   color: var(--chocolate);
+  margin-bottom: 50px;
+}
+
+.order-btns {
+  display: flex;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
 .btn-light {
-  padding: 18px 36px;
-  font-size: 0.9rem;
+  background: var(--chocolate);
+  color: white;
+  padding: 24px 52px;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-    .order-btns {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
-    }
+.btn-light:hover {
+  transform: translateY(-2px);
+  background: var(--caramel);
+}
 
-    .btn-light {
-      background: var(--cream);
-      color: var(--ink);
-    }
+.order-ig {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
 
-    .btn-outline-light {
-      background: transparent;
-      border: 1.5px solid rgba(245,239,224,0.3);
-      color: var(--cream);
-    }
-
-    .order-ig {
-      font-family: 'Caveat', cursive;
-      font-size: 1.4rem;
-      color: rgba(245,239,224,0.4);
-    }
-
-    .order-ig a {
-      color: var(--caramel);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201,168,130,0.4);
-    }
-
+.order-ig a {
+  color: var(--caramel);
+  text-decoration: none;
+}
     #contact {
   background: white;
   padding: 100px 48px;
