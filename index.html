@@ -456,58 +456,63 @@ white-space: nowrap;
   margin: 40px auto;
 }
 
+
     .contact-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.contact-link {
-  color: var(--ink);
-  text-decoration: none;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
 .contact-link img {
-  height: 50px;
+  height: 48px;
   width: auto;
   display: block;
 }
 
-.contact-label {
+.contact-copy h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 2.4rem;
+  color: var(--chocolate);
+  margin-bottom: 12px;
+}
+
+.contact-copy p {
   color: var(--mid);
-  margin-bottom: 18px;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
 }
 
 .contact-email {
-  font-family: 'Caveat', cursive;
-  font-size: 2rem;
+  color: var(--caramel);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+footer {
+  background: white;
+  border-top: 1px solid rgba(59,56,39,0.08);
+  padding: 24px 48px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.f-note {
+  color: var(--mid);
+  font-size: 0.8rem;
+}
+
+.f-note a {
   color: var(--chocolate);
   text-decoration: none;
 }
-    
- footer {
-  background: white;
-  border-top: 1px solid rgba(59,56,39,0.08);
-  padding: 40px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.f-note a:hover {
+  color: var(--caramel);
 }
-
-    footer .f-logo {
-      font-family: 'Caveat', cursive;
-      font-size: 1.2rem;
-      color: var(--mid);
-    }
-
-    footer .f-note {
-      font-size: 0.78rem;
-     color: var(--mid);
-      letter-spacing: 0.06em;
-    }
-
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -816,31 +821,51 @@ white-space: nowrap;
 <section id="contact">
   <div class="contact-inner">
 
-   <section id="contact">
-  <div class="contact-inner">
-
     <h2>Find Us Elsewhere</h2>
 
     <div class="contact-links">
 
-      <a href="https://astronomiku.github.io/rekdi/" target="_blank" class="contact-link">
+      <a href="https://astronomiku.github.io/rekdi/"
+         target="_blank"
+         class="contact-link">
         <img src="assets/rekdilogo.png" alt="REKDI">
       </a>
 
       <a href="https://www.instagram.com/crumbnextdoor/"
-   target="_blank"
-   class="contact-link">
-  <img src="assets/IG.png" alt="Instagram">
-</a>
+         target="_blank"
+         class="contact-link">
+        <img src="assets/IG.png" alt="Instagram">
+      </a>
 
-      <a href="mailto:crumbnextdoor@gmail.com" class="contact-link">
-        crumbnextdoor@gmail.com
+    </div>
+
+    <div class="contact-copy">
+
+      <h3>Contact Us</h3>
+
+      <p>
+        For collaborations, wholesale orders,
+        product development, and other inquiries.
+      </p>
+
+      <a class="contact-email"
+         href="mailto:crumbnextdoor@gmail.com">
+         crumbnextdoor@gmail.com
       </a>
 
     </div>
 
   </div>
 </section>
+
+<footer>
+  <span class="f-note">
+    Website by
+    <a href="https://themadgoats.com" target="_blank">
+      TMGI
+    </a>
+  </span>
+</footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
