@@ -501,7 +501,81 @@ white-space: nowrap;
   text-decoration: none;
 }
 
-  
+    <section id="contact">
+  <div class="contact-inner">
+
+    <h2>Find Us Elsewhere</h2>
+
+    <p class="contact-rekdi">
+      Crumb Next Door desserts are also served at
+      <a href="https://astronomiku.github.io/rekdi/" target="_blank">
+        REKDI
+      </a>
+    </p>
+
+    <div class="contact-divider"></div>
+
+    <p class="contact-label">
+      Inquiries, collaborations, wholesale orders,
+      and product development
+    </p>
+
+    <a
+      class="contact-email"
+      href="mailto:crumbnextdoor@gmail.com">
+      crumbnextdoor@gmail.com
+    </a>
+
+  </div>
+</section>
+
+#contact {
+  background: white;
+  padding: 90px 48px;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 700px;
+  margin: auto;
+}
+
+.contact-inner h2 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--chocolate);
+  margin-bottom: 36px;
+}
+
+.contact-rekdi {
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.contact-rekdi a {
+  color: var(--caramel);
+  text-decoration: none;
+}
+
+.contact-divider {
+  width: 80px;
+  height: 1px;
+  background: rgba(59,56,39,0.15);
+  margin: 40px auto;
+}
+
+.contact-label {
+  color: var(--mid);
+  margin-bottom: 18px;
+}
+
+.contact-email {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--chocolate);
+  text-decoration: none;
+}
+    
     footer {
       background: var(--ink);
       border-top: 1px solid rgba(245,239,224,0.08);
@@ -839,67 +913,71 @@ white-space: nowrap;
       </a>
     </p>
 
-    <div class="order-notes">
+  </div>
+</section>
 
-      <p>
-        Crumb Next Door desserts are also served at
-        <a href="https://astronomiku.github.io/rekdi/" target="_blank">
-          REKDI
-        </a>.
-      </p>
+<section id="contact">
+  <div class="contact-inner">
 
-      <p>
-        For inquiries, collaborations, wholesale orders,
-        and product development:
-      </p>
+    <h2>Find Us Elsewhere</h2>
 
-      <p>
-        <a href="mailto:crumbnextdoor@gmail.com">
-          crumbnextdoor@gmail.com
-        </a>
-      </p>
+    <p class="contact-rekdi">
+      Crumb Next Door desserts are also served at
+      <a href="https://astronomiku.github.io/rekdi/" target="_blank">
+        REKDI
+      </a>
+    </p>
 
-    </div>
+    <div class="contact-divider"></div>
+
+    <p class="contact-label">
+      Inquiries, collaborations, wholesale orders,
+      and product development
+    </p>
+
+    <a
+      class="contact-email"
+      href="mailto:crumbnextdoor@gmail.com">
+      crumbnextdoor@gmail.com
+    </a>
 
   </div>
 </section>
-  
-  <footer>
-    <span class="f-logo">Crumb Next Door</span>
-    <span class="f-note">© 2026 · Parañaque, Philippines </span>
-  </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
+<footer>
+  <span class="f-logo">Crumb Next Door</span>
+  <span class="f-note">© 2026 · Parañaque, Philippines</span>
+</footer>
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    window.addEventListener('scroll', () => {
-      let current = '';
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
 
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 200) {
-          current = s.id;
-        }
-      });
+  window.addEventListener('scroll', () => {
+    let current = '';
 
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) {
+        current = s.id;
+      }
     });
 
-
-  </script>
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
 
 </body>
 </html>
