@@ -72,17 +72,17 @@
     .nav-links a {
       font-family: 'Caveat', cursive;
       font-size: 1.4rem;
-      color: var(--mid);
+      color: var(--ink);
       text-decoration: none;
       border-bottom: 2px solid transparent;
       transition: 0.2s;
     }
 
     .nav-links a:hover {
-  color: var(--chocolate);
+  color: var(--pistachio);
 }
     .nav-links a.active {
-      color: var(--chocolate);
+      color: var(--pistachio);
       border-bottom: 2px solid var(--chocolate);
     }
 
@@ -403,7 +403,7 @@ white-space: nowrap;
 .order-strip:hover {
   background: #8F9C5A;
   transform: translateY(-2px);
-
+}
 .contact-inner p {
   color: var(--mid);
   line-height: 1.8;
@@ -448,6 +448,25 @@ white-space: nowrap;
   height: 1px;
   background: rgba(59,56,39,0.15);
   margin: 40px auto;
+}
+
+    .contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.contact-link img {
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 .contact-label {
@@ -791,27 +810,26 @@ white-space: nowrap;
 <section id="contact">
   <div class="contact-inner">
 
+   <section id="contact">
+  <div class="contact-inner">
+
     <h2>Find Us Elsewhere</h2>
 
-    <p class="contact-rekdi">
-      Crumb Next Door desserts are also served at
-      <a href="https://astronomiku.github.io/rekdi/" target="_blank">
-        REKDI
+    <div class="contact-links">
+
+      <a href="https://astronomiku.github.io/rekdi/" target="_blank" class="contact-link">
+        <img src="assets/rekdilogo.png" alt="REKDI">
       </a>
-    </p>
 
-    <div class="contact-divider"></div>
+      <a href="https://www.instagram.com/crumbnextdoor/" target="_blank" class="contact-link">
+        Instagram
+      </a>
 
-    <p class="contact-label">
-      Inquiries, collaborations, wholesale orders,
-      and product development
-    </p>
+      <a href="mailto:crumbnextdoor@gmail.com" class="contact-link">
+        crumbnextdoor@gmail.com
+      </a>
 
-    <a
-      class="contact-email"
-      href="mailto:crumbnextdoor@gmail.com">
-      crumbnextdoor@gmail.com
-    </a>
+    </div>
 
   </div>
 </section>
