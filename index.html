@@ -382,20 +382,6 @@ white-space: nowrap;
       overflow: hidden;
     }
 
-    #order::before {
-      content: 'Order';
-      position: absolute;
-      font-family: 'Caveat', cursive;
-      font-size: 28vw;
-      font-weight: 700;
-      color: rgba(255,255,255,0.03);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-
     .order-inner {
       position: relative;
       z-index: 1;
@@ -430,12 +416,12 @@ white-space: nowrap;
       flex-wrap: wrap;
     }
 
- .order-schedule {
+.order-schedule {
   font-family: 'Caveat', cursive;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.95;
   color: var(--caramel);
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .btn-light {
@@ -790,7 +776,6 @@ white-space: nowrap;
 
 <section id="order">
   <div class="order-inner">
-    <div class="section-label">Place your order</div>
 
     <h2>Order</h2>
 
@@ -813,6 +798,29 @@ white-space: nowrap;
         @crumbnextdoor
       </a>
     </p>
+
+    <div class="order-notes">
+
+      <p>
+        Crumb Next Door desserts are also served at
+        <a href="https://astronomiku.github.io/rekdi/" target="_blank">
+          REKDI
+        </a>.
+      </p>
+
+      <p>
+        For inquiries, collaborations, wholesale orders,
+        and product development:
+      </p>
+
+      <p>
+        <a href="mailto:crumbnextdoor@gmail.com">
+          crumbnextdoor@gmail.com
+        </a>
+      </p>
+
+    </div>
+
   </div>
 </section>
   
