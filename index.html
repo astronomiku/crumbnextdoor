@@ -6,115 +6,178 @@
   <title>Crumb Next Door</title>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: Arial, sans-serif;
-      background: #f7efe3;
-      color: #2a1b12;
-      line-height: 1.5;
+      background: #f5f0e6;
+      color: #2b2118;
+      line-height: 1.6;
     }
 
     header {
       min-height: 100vh;
-      padding: 40px 24px;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: #f3dfc4;
+      justify-content: space-between;
+      background: #f5f0e6;
     }
 
-    .logo {
-      font-size: clamp(3rem, 10vw, 7rem);
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      line-height: 0.9;
-      margin-bottom: 24px;
-    }
-
-    .tagline {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      max-width: 720px;
-      margin-bottom: 24px;
-    }
-
-    .sub {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 36px;
-    }
-
-    .buttons {
+    nav {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    a.button {
+    nav a {
+      color: #2b2118;
       text-decoration: none;
-      color: #fff;
-      background: #2a1b12;
-      padding: 14px 22px;
-      border-radius: 999px;
+      margin-left: 18px;
+    }
+
+    .brand {
       font-weight: bold;
     }
 
-    a.button.secondary {
-      background: transparent;
-      color: #2a1b12;
-      border: 2px solid #2a1b12;
+    .hero {
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 0;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(4rem, 13vw, 10rem);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+      margin-bottom: 32px;
+    }
+
+    .hero p {
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      margin-bottom: 12px;
+    }
+
+    .hero .location {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: #2b2118;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     section {
-      padding: 70px 24px;
+      padding: 90px 24px;
       max-width: 1000px;
       margin: auto;
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-family: Georgia, serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .about-text {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+    }
+
+    .about-text p {
+      margin-bottom: 28px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 18px;
+      margin-top: 34px;
     }
 
     .card {
-      background: #fff8ef;
-      padding: 24px;
-      border-radius: 20px;
-      border: 1px solid #d8b98f;
+      border: 1px solid #d8c6ad;
+      background: #fffaf2;
+      padding: 28px;
+      border-radius: 24px;
+      min-height: 180px;
     }
 
     .card h3 {
-      margin-bottom: 8px;
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      margin-bottom: 12px;
     }
 
-    .order-box {
-      background: #2a1b12;
-      color: #fff;
-      padding: 36px;
-      border-radius: 24px;
+    .order {
+      background: #2b2118;
+      color: #f5f0e6;
+      border-radius: 32px;
+      padding: 54px 28px;
       text-align: center;
     }
 
-    .order-box a {
-      color: #f3dfc4;
+    .order h2 {
+      color: #f5f0e6;
+    }
+
+    .order p {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .order a {
+      color: #f5f0e6;
       font-weight: bold;
     }
 
     footer {
+      padding: 36px 24px;
       text-align: center;
-      padding: 30px;
       font-size: 0.9rem;
-      color: #6b5140;
+      color: #6b5a4b;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
     }
   </style>
 </head>
@@ -122,64 +185,93 @@
 <body>
 
   <header>
-    <div class="logo">Crumb<br>Next<br>Door</div>
-    <p class="tagline">Three minds. One oven. Endless pastries.</p>
-    <p class="sub">Small-batch pastries from Parañaque</p>
+    <nav>
+      <div class="brand">Crumb Next Door</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#bakes">Bakes</a>
+        <a href="#order">Order</a>
+      </div>
+    </nav>
 
-    <div class="buttons">
-      <a class="button" href="https://www.instagram.com/crumbnextdoor/" target="_blank">Order on Instagram</a>
-      <a class="button secondary" href="#menu">See Menu</a>
+    <div class="hero">
+      <h1>Crumb<br>Next<br>Door</h1>
+      <p>Three minds. One oven. Endless pastries.</p>
+      <div class="location">Small-batch pastries from Parañaque</div>
+      <a class="button" href="https://www.instagram.com/crumbnextdoor/" target="_blank">
+        Order on Instagram
+      </a>
     </div>
   </header>
 
   <section id="about">
-    <h2>Fresh from the neighborhood</h2>
-    <p>
-      Crumb Next Door is a small pastry kitchen making baked goods with butter,
-      sugar, time, and no shortcuts. We bake in small batches and open orders
-      on selected days so everything stays fresh.
-    </p>
+    <h2>About Us.</h2>
+
+    <div class="about-text">
+      <p>
+        Three friends fresh out of college, and a shared passion for baking.
+        What began as a creative outlet between classes and exams has since
+        grown into a small bakery business built on simple ingredients,
+        reliable recipes, and a mutual love for pastry done right.
+      </p>
+
+      <p>
+        Each friend brings something unique to the table, but they all share
+        a genuine appreciation for creating baked goods that taste just as good
+        as they look.
+      </p>
+
+      <p>
+        From cookies and croissants to whatever new ideas they're experimenting
+        with, quality, detail, and flavor are the top priorities — always.
+      </p>
+
+      <p>
+        Thanks for stopping by and supporting something small and growing.
+      </p>
+    </div>
   </section>
 
-  <section id="menu">
-    <h2>What we bake</h2>
+  <section id="bakes">
+    <h2>What We Bake</h2>
 
     <div class="grid">
       <div class="card">
         <h3>Cookies</h3>
-        <p>Big, chunky, buttery cookies made for gifting, sharing, or eating alone.</p>
+        <p>Buttery, generous, and made fresh in small batches.</p>
       </div>
 
       <div class="card">
-        <h3>Pastries</h3>
-        <p>Small-batch pastries baked with care, available depending on the week’s menu.</p>
+        <h3>Croissants</h3>
+        <p>Flaky, layered pastries made with patience and care.</p>
       </div>
 
       <div class="card">
-        <h3>Custom Boxes</h3>
-        <p>Order boxes for birthdays, thank-you gifts, office treats, or cravings.</p>
+        <h3>Specials</h3>
+        <p>Limited releases, new ideas, and whatever the kitchen is testing next.</p>
       </div>
     </div>
   </section>
 
-  <section id="orders">
-    <div class="order-box">
-      <h2>Open for orders</h2>
-      <p>Tuesdays, Thursdays, and Saturdays.</p>
-      <br>
+  <section id="order">
+    <div class="order">
+      <h2>Order Schedule</h2>
+      <p>Open for orders every</p>
+      <p><strong>Tuesday · Thursday · Saturday</strong></p>
       <p>
-        Message us on Instagram:<br>
-        <a href="https://www.instagram.com/crumbnextdoor/" target="_blank">@crumbnextdoor</a>
+        For menu availability and ordering instructions, message us on Instagram.
+      </p>
+      <p>
+        <a href="https://www.instagram.com/crumbnextdoor/" target="_blank">
+          @crumbnextdoor
+        </a>
       </p>
     </div>
   </section>
 
   <footer>
-    © 2026 Crumb Next Door · Parañaque
+    © 2026 Crumb Next Door · Parañaque, Philippines
   </footer>
 
 </body>
 </html>
-```
-
-[1]: https://www.instagram.com/crumbnextdoor/?utm_source=chatgpt.com "Crumb Next Door (@crumbnextdoor) · Parañaque"
