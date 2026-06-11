@@ -74,7 +74,7 @@
       min-height: 100vh;
       display: grid;
       grid-template-rows: 1fr auto;
-      padding-top: 90px;
+      padding-top: 135px;
       position: relative;
     }
 
@@ -211,14 +211,22 @@
     .p3 { transform: rotate(9deg) translate(110px, 40px); z-index: 2; }
 
     /* scroll hint */
-    .hero-ticker {
-      border-top: 1px solid rgba(59,56,39,0.15);
-      padding: 16px 48px;
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      overflow: hidden;
-    }
+  .hero-ticker {
+  position: fixed;
+  top: 66px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-top: 1px solid rgba(59,56,39,0.12);
+  border-bottom: 1px solid rgba(59,56,39,0.12);
+  padding: 10px 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+}
 
     .ticker-inner {
       display: flex;
@@ -487,45 +495,53 @@
   justify-content: center;
 }
 
-.hero-products {
+    .hero-center {
   position: relative;
-  width: min(980px, 94vw);
-  min-height: 420px;
-  margin: 0 auto 20px;
+  z-index: 2;
+  text-align: center;
+  margin-top: 0;
+}
+
+.hero-products {
+  position: absolute;
+  inset: 135px 0 0 0;
+  width: 100%;
+  height: calc(100vh - 135px);
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .hero-food {
   position: absolute;
-  display: block;
+  width: 220px;
+  max-width: 24vw;
+  height: 220px;
   object-fit: contain;
+  display: block;
 }
 
 .food-1 {
-  width: 32%;
-  left: 4%;
-  top: 8%;
-  transform: rotate(-6deg);
+  left: 7%;
+  top: 10%;
+  transform: rotate(-7deg);
 }
 
 .food-2 {
-  width: 30%;
-  right: 6%;
-  top: 12%;
-  transform: rotate(5deg);
+  right: 8%;
+  top: 13%;
+  transform: rotate(6deg);
 }
 
 .food-3 {
-  width: 34%;
-  left: 18%;
-  bottom: 0;
-  transform: rotate(2deg);
+  left: 10%;
+  bottom: 10%;
+  transform: rotate(4deg);
 }
 
 .food-4 {
-  width: 30%;
-  right: 18%;
-  bottom: -4%;
-  transform: rotate(-4deg);
+  right: 11%;
+  bottom: 9%;
+  transform: rotate(-5deg);
 }
 
 .hero-center {
@@ -865,6 +881,25 @@
     </ul>
   </nav>
 
+    <div class="hero-ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item">Cookies</span>
+      <span class="ticker-item">Salt Bread</span>
+      <span class="ticker-item">Basque Burnt Cheesecake</span>
+      <span class="ticker-item">Cinnamon Rolls</span>
+      <span class="ticker-item">Made in Parañaque</span>
+      <span class="ticker-item">Order Tue · Thu · Sat</span>
+
+      <span class="ticker-item">Cookies</span>
+      <span class="ticker-item">Salt Bread</span>
+      <span class="ticker-item">Basque Burnt Cheesecake</span>
+      <span class="ticker-item">Cinnamon Rolls</span>
+      <span class="ticker-item">Made in Parañaque</span>
+      <span class="ticker-item">Order Tue · Thu · Sat</span>
+    </div>
+  </div>
+</section>
+
   <!-- HERO -->
 <section id="home">
   <div class="hero-body hero-floating">
@@ -891,24 +926,7 @@
 
   </div>
 
-  <div class="hero-ticker">
-    <div class="ticker-inner">
-      <span class="ticker-item">Cookies</span>
-      <span class="ticker-item">Salt Bread</span>
-      <span class="ticker-item">Basque Burnt Cheesecake</span>
-      <span class="ticker-item">Cinnamon Rolls</span>
-      <span class="ticker-item">Made in Parañaque</span>
-      <span class="ticker-item">Order Tue · Thu · Sat</span>
 
-      <span class="ticker-item">Cookies</span>
-      <span class="ticker-item">Salt Bread</span>
-      <span class="ticker-item">Basque Burnt Cheesecake</span>
-      <span class="ticker-item">Cinnamon Rolls</span>
-      <span class="ticker-item">Made in Parañaque</span>
-      <span class="ticker-item">Order Tue · Thu · Sat</span>
-    </div>
-  </div>
-</section>
 
   <!-- TORN EDGE -->
   <div class="torn"></div>
