@@ -327,16 +327,17 @@ nav {
   border-radius: 0;
 }
 
-    .about-image-wrap img,
-    .about-img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      display: block;
-      border-radius: 4px;
-    }
+    .about-image-wrap {
+  position: relative;
+}
 
-  
+.owners-photo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
 
     .about-text .section-label {
       font-size: 0.75rem;
@@ -493,21 +494,34 @@ nav {
   margin-top: 0;
 }
 
+#home {
+  overflow: hidden;
+}
+
 .hero-products {
   position: absolute;
-  inset: 135px 0 0 0;
-  width: 100%;
-  height: calc(100vh - 135px);
+  top: 145px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-food {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: 190px;
+  height: 190px;
   object-fit: contain;
   display: block;
+}
+
+.hero-center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 0;
 }
 
 .main-logo {
@@ -1076,13 +1090,13 @@ nav {
 const heroFoods = document.querySelectorAll('.hero-food');
 
 const positions = [
-  { left: '6%', top: '10%' },
-  { left: '70%', top: '8%' },
-  { left: '8%', top: '58%' },
-  { left: '72%', top: '56%' },
-  { left: '38%', top: '12%' },
-  { left: '18%', top: '34%' },
-  { left: '62%', top: '35%' }
+  { left: '6%', top: '12%' },
+  { left: '72%', top: '14%' },
+  { left: '8%', top: '56%' },
+  { left: '72%', top: '54%' },
+  { left: '18%', top: '32%' },
+  { left: '62%', top: '34%' },
+  { left: '40%', top: '10%' }
 ];
 
 const shuffledPositions = [...positions].sort(() => Math.random() - 0.5);
@@ -1093,6 +1107,8 @@ heroFoods.forEach((food, index) => {
 
   food.style.left = pos.left;
   food.style.top = pos.top;
+  food.style.right = 'auto';
+  food.style.bottom = 'auto';
   food.style.transform = `rotate(${rotate}deg)`;
 });
   </script>
