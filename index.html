@@ -410,6 +410,12 @@ white-space: nowrap;
   margin-bottom: 16px;
 }
 
+    .contact-link img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
 .contact-inner a {
   color: var(--caramel);
   text-decoration: none;
@@ -481,24 +487,24 @@ white-space: nowrap;
   text-decoration: none;
 }
     
-    footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(245,239,224,0.08);
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+ footer {
+  background: white;
+  border-top: 1px solid rgba(59,56,39,0.08);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
     footer .f-logo {
       font-family: 'Caveat', cursive;
       font-size: 1.2rem;
-      color: rgba(245,239,224,0.4);
+      color: var(--mid);
     }
 
     footer .f-note {
       font-size: 0.78rem;
-      color: rgba(245,239,224,0.25);
+     color: var(--mid);
       letter-spacing: 0.06em;
     }
 
@@ -821,9 +827,11 @@ white-space: nowrap;
         <img src="assets/rekdilogo.png" alt="REKDI">
       </a>
 
-      <a href="https://www.instagram.com/crumbnextdoor/" target="_blank" class="contact-link">
-        Instagram
-      </a>
+      <a href="https://www.instagram.com/crumbnextdoor/"
+   target="_blank"
+   class="contact-link">
+  <img src="assets/IG.png" alt="Instagram">
+</a>
 
       <a href="mailto:crumbnextdoor@gmail.com" class="contact-link">
         crumbnextdoor@gmail.com
@@ -833,11 +841,6 @@ white-space: nowrap;
 
   </div>
 </section>
-
-<footer>
-  <span class="f-logo">Crumb Next Door</span>
-  <span class="f-note">© 2026 · Parañaque, Philippines</span>
-</footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
