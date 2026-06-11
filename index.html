@@ -371,8 +371,7 @@ white-space: nowrap;
 }
 #order {
   background: var(--paper);
-  padding: 140px 48px;
-  text-align: center;
+  padding: 80px 48px;
 }
 
 .order-inner {
@@ -380,45 +379,26 @@ white-space: nowrap;
   margin: auto;
 }
 
-.order-schedule {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 0.9;
-  color: var(--chocolate);
-  margin-bottom: 50px;
-}
-
-.order-btns {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.btn-light {
+.order-strip {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 32px;
   background: var(--chocolate);
   color: white;
-  padding: 24px 52px;
-  font-size: 1rem;
-  letter-spacing: 0.15em;
+  text-decoration: none;
   border-radius: 999px;
-  text-transform: uppercase;
+
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
   font-weight: 600;
+  text-transform: uppercase;
+
   transition: 0.2s;
 }
 
-.btn-light:hover {
-  transform: translateY(-2px);
+.order-strip:hover {
   background: var(--caramel);
-}
-
-.order-ig {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-}
-
-.order-ig a {
-  color: var(--caramel);
-  text-decoration: none;
 }
     #contact {
   background: white;
@@ -449,30 +429,37 @@ white-space: nowrap;
   text-decoration: none;
 }
 
-    <section id="contact">
+ <section id="contact">
   <div class="contact-inner">
 
     <h2>Find Us Elsewhere</h2>
 
-    <p class="contact-rekdi">
-      Crumb Next Door desserts are also served at
-      <a href="https://astronomiku.github.io/rekdi/" target="_blank">
-        REKDI
+    <div class="contact-links">
+
+      <a
+        href="https://astronomiku.github.io/rekdi/"
+        target="_blank"
+        class="contact-link">
+
+        <img src="assets/rekdilogo.png" alt="REKDI">
       </a>
-    </p>
 
-    <div class="contact-divider"></div>
+      <a
+        href="https://www.instagram.com/crumbnextdoor/"
+        target="_blank"
+        class="contact-link">
 
-    <p class="contact-label">
-      Inquiries, collaborations, wholesale orders,
-      and product development
-    </p>
+        Instagram
+      </a>
 
-    <a
-      class="contact-email"
-      href="mailto:crumbnextdoor@gmail.com">
-      crumbnextdoor@gmail.com
-    </a>
+      <a
+        href="mailto:crumbnextdoor@gmail.com"
+        class="contact-link">
+
+        crumbnextdoor@gmail.com
+      </a>
+
+    </div>
 
   </div>
 </section>
@@ -840,27 +827,12 @@ white-space: nowrap;
 
 <section id="order">
   <div class="order-inner">
-
-    <p class="order-schedule">
-      Freshly baked every<br>
-      Tuesday • Thursday • Saturday
-    </p>
-
-    <div class="order-btns">
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform"
-        target="_blank"
-        class="btn btn-light">
-        Place an Order
-      </a>
-    </div>
-
-    <p class="order-ig">
-      <a href="https://www.instagram.com/crumbnextdoor/" target="_blank">
-        @crumbnextdoor
-      </a>
-    </p>
-
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform"
+      target="_blank"
+      class="order-strip">
+      PLACE AN ORDER
+    </a>
   </div>
 </section>
 
