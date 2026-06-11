@@ -103,7 +103,7 @@
     .ticker-inner {
       display: flex;
       gap: 48px;
-      animation: ticker 18s linear infinite;
+      animation: ticker 40s linear infinite
       white-space: nowrap;
       width: max-content;
     }
@@ -123,10 +123,14 @@
       color: var(--caramel);
     }
 
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+   @keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
 
     #home {
       min-height: 100vh;
@@ -606,12 +610,26 @@
       <span class="ticker-item">Made in Parañaque</span>
       <span class="ticker-item">Order Tue · Thu · Sat</span>
 
-      <span class="ticker-item">Cookies</span>
+      <span class="ticker-item">Cheese Rolls</span>
+      <span class="ticker-item">Ube Cheese</span>
+      <span class="ticker-item">Basque Burnt Cheesecake - Biscoff</span>
+      <span class="ticker-item">Financier</span>
+      <span class="ticker-item">You deserve this!</span>
+      <span class="ticker-item">Order Now </span>
+
+       <span class="ticker-item">Cookies</span>
       <span class="ticker-item">Salt Bread</span>
       <span class="ticker-item">Basque Burnt Cheesecake</span>
       <span class="ticker-item">Cinnamon Rolls</span>
       <span class="ticker-item">Made in Parañaque</span>
       <span class="ticker-item">Order Tue · Thu · Sat</span>
+
+        <span class="ticker-item">Cheese Rolls</span>
+      <span class="ticker-item">Ube Cheese</span>
+      <span class="ticker-item">Basque Burnt Cheesecake - Biscoff</span>
+      <span class="ticker-item">Financier</span>
+      <span class="ticker-item">You deserve this!</span>
+      <span class="ticker-item">Order Now </span>
     </div>
   </div>
 
