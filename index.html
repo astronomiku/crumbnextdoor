@@ -262,11 +262,6 @@ white-space: nowrap;
     .menu-header h2 {
   color: var(--chocolate);
 }
-    .order-inner h2 {
-      font-family: 'Caveat', cursive;
-      line-height: 0.9;
-      color: var(--ink);
-    }
 
     .about-text h2 {
       color: var(--chocolate);
@@ -375,7 +370,7 @@ white-space: nowrap;
   }
 }
     #order {
-      background: var(--ink);
+      background: var(--paper);
       padding: 120px 48px;
       text-align: center;
       position: relative;
@@ -420,7 +415,7 @@ white-space: nowrap;
   font-family: 'Caveat', cursive;
   font-size: clamp(3rem, 6vw, 5rem);
   line-height: 0.95;
-  color: var(--caramel);
+  color: var(--chocolate);
   margin-bottom: 40px;
 }
 
@@ -460,6 +455,60 @@ white-space: nowrap;
       border-bottom: 1px solid rgba(201,168,130,0.4);
     }
 
+    #contact {
+  background: white;
+  padding: 100px 48px;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 700px;
+  margin: auto;
+}
+
+.contact-inner h2 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--chocolate);
+  margin-bottom: 30px;
+}
+
+.contact-inner p {
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.contact-inner a {
+  color: var(--caramel);
+  text-decoration: none;
+}
+
+    <section id="contact">
+  <div class="contact-inner">
+
+    <h2>Find Us Elsewhere</h2>
+
+    <p>
+      Crumb Next Door desserts are also served at
+      <a href="https://astronomiku.github.io/rekdi/" target="_blank">
+        REKDI
+      </a>.
+    </p>
+
+    <p>
+      For inquiries, collaborations, wholesale orders,
+      and product development:
+    </p>
+
+    <p>
+      <a href="mailto:crumbnextdoor@gmail.com">
+        crumbnextdoor@gmail.com
+      </a>
+    </p>
+
+  </div>
+</section>
     footer {
       background: var(--ink);
       border-top: 1px solid rgba(245,239,224,0.08);
@@ -776,8 +825,6 @@ white-space: nowrap;
 
 <section id="order">
   <div class="order-inner">
-
-    <h2>Order</h2>
 
     <p class="order-schedule">
       Freshly baked every<br>
