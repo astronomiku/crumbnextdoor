@@ -166,13 +166,11 @@ white-space: nowrap;
 
 .hero-body {
   width: 100%;
-  min-height: 80vh;
-  align-items: flex-start;
-  padding-top: 40px;
+  min-height: 75vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0 48px;
+  padding: 20px 48px 0;
   position: relative;
 }
     .hero-center {
@@ -258,7 +256,7 @@ white-space: nowrap;
   max-width: 1250px;
   margin: auto;
   display: grid;
-  grid-template-columns: minmax(350px, 500px) minmax(0, 1fr);
+  grid-template-columns: minmax(450px, 650px) minmax(0, 1fr);
   gap: 60px;
   align-items: center;
 }
@@ -305,11 +303,17 @@ white-space: nowrap;
 
     .about-flour {
   position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 220px;
-  opacity: 0.18;
+  bottom: 20px;
+  left: 20px;
+  width: 320px;
+  opacity: 0.25;
   pointer-events: none;
+  z-index: 0;
+}
+
+    .about-grid {
+  position: relative;
+  z-index: 1;
 }
 
     #about {
@@ -543,12 +547,11 @@ white-space: nowrap;
 }
 
 .owners-photo {
-  width: min(320px, 90vw);
+  width: 100%;
+  max-width: 650px;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
-
 .about-text {
   width: 100%;
   max-width: 100%;
