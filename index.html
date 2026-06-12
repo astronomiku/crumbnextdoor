@@ -247,10 +247,15 @@ white-space: nowrap;
       background: var(--cream);
     }
 
-    #about {
-      background: var(--paper);
-      padding: 100px 48px;
-    }
+  #about {
+  background-color: var(--paper);
+  background-image: url("assets/flour.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75%;
+  padding: 100px 48px;
+  position: relative;
+}
 
 .about-grid {
   max-width: 1250px;
@@ -280,18 +285,6 @@ white-space: nowrap;
   overflow-wrap: break-word;
 }
 
-.about-text::before {
-  content: "";
-  position: absolute;
-  inset: -40px -60px;
-  background-image: url("assets/flour.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.22;
-  z-index: -1;
-  pointer-events: none;
-}
 
     .about-text p {
   max-width: 100%;
