@@ -535,9 +535,40 @@ footer {
         padding: 18px 24px;
       }
 
-      .nav-links {
-        display: none;
-      }
+     @media (max-width: 820px) {
+  nav {
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .nav-logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 1.25rem;
+  }
+
+  .hero-ticker {
+    top: 94px;
+    padding: 8px 24px;
+  }
+
+  #home {
+    padding-top: 150px;
+  }
+
+  .hero-body {
+    min-height: calc(100vh - 150px);
+    padding: 0 24px;
+  }
+}
 
       .hero-ticker {
         top: 66px;
