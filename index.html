@@ -247,12 +247,12 @@ white-space: nowrap;
       background: var(--cream);
     }
 
-  #about {
+#about {
   background-color: var(--paper);
   background-image: url("assets/flour.png");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 75%;
+  background-size: 85%;
   padding: 100px 48px;
   position: relative;
 }
@@ -264,49 +264,21 @@ white-space: nowrap;
   grid-template-columns: minmax(420px, 45%) minmax(0, 1fr);
   gap: 60px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-   .owners-photo {
+.owners-photo {
   width: 100%;
   height: auto;
   display: block;
 }
 
-  .about-text {
+.about-text {
   min-width: 0;
   width: 100%;
   overflow-wrap: break-word;
 }
-
-    .about-text {
-  position: relative;
-  min-width: 0;
-  width: 100%;
-  overflow-wrap: break-word;
-}
-
-
-    .about-text p {
-  max-width: 100%;
-
-
-      .about-text {
-  min-width: 0;
-  width: 100%;
-}
-
-.about-text p {
-  overflow-wrap: break-word;
-}
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--chocolate);
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
 
 .about-text h2 {
   font-family: 'Caveat', cursive;
@@ -316,20 +288,12 @@ white-space: nowrap;
   margin-bottom: 32px;
 }
 
-    .about-text p {
-      font-size: 0.97rem;
-      color: var(--mid);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .about-grid {
-  position: relative;
-  z-index: 1;
-}
-
-    #about {
-  position: relative;
+.about-text p {
+  max-width: 100%;
+  font-size: 0.97rem;
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
  #oven {
