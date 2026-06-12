@@ -40,6 +40,20 @@
       overflow-x: hidden;
     }
 
+    body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(182,122,75,0.18) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(143,156,90,0.12) 1px, transparent 1.5px);
+  background-size: 90px 90px, 140px 140px;
+  background-position: 20px 30px, 70px 100px;
+}
+
     nav {
       position: fixed;
       top: 0;
@@ -58,6 +72,15 @@
   backdrop-filter: blur(12px);
 border-bottom: 2px solid rgba(182,122,75,0.18);
     }
+
+    nav,
+.hero-ticker,
+section,
+.torn,
+footer {
+  position: relative;
+  z-index: 1;
+}
 
 .nav-logo {
   font-family: 'Caveat', cursive;
