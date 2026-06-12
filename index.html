@@ -256,7 +256,7 @@ white-space: nowrap;
   max-width: 1250px;
   margin: auto;
   display: grid;
-  grid-template-columns: minmax(450px, 650px) minmax(0, 1fr);
+  grid-template-columns: minmax(520px, 720px) minmax(0, 1fr);
   gap: 60px;
   align-items: center;
 }
@@ -271,6 +271,26 @@ white-space: nowrap;
   min-width: 0;
   width: 100%;
   overflow-wrap: break-word;
+}
+
+    .about-text {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.about-text::before {
+  content: "";
+  position: absolute;
+  inset: -40px -60px;
+  background-image: url("assets/flour.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.22;
+  z-index: -1;
+  pointer-events: none;
 }
 
     .about-text p {
@@ -300,16 +320,6 @@ white-space: nowrap;
       line-height: 1.8;
       margin-bottom: 20px;
     }
-
-    .about-flour {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 320px;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 0;
-}
 
     .about-grid {
   position: relative;
@@ -551,25 +561,6 @@ white-space: nowrap;
   max-width: 650px;
   height: auto;
   display: block;
-}
-.about-text {
-  position: relative;
-  min-width: 0;
-  width: 100%;
-  overflow-wrap: break-word;
-}
-
-.about-text::before {
-  content: "";
-  position: absolute;
-  inset: -40px -60px;
-  background-image: url("assets/flour.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.22;
-  z-index: -1;
-  pointer-events: none;
 }
 
 .about-text h2 {
