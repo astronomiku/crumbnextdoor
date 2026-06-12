@@ -354,196 +354,6 @@ white-space: nowrap;
 }
 
 @media (max-width: 820px) {
-
-  .menu-item {
-    grid-template-columns: 90px 1fr;
-    gap: 16px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .menu-thumb {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-  }
-
-  .menu-item h3 {
-    font-size: 2.2rem;
-    margin-bottom: 6px;
-    
-  }
-
-  .menu-price {
-    text-align: center;
-    font-size: 1.4rem;
-    margin-top: 6px;
-  }
-
-}
-#order {
-  background: var(--paper);
-  padding: 80px 48px;
-}
-
-.order-inner {
-  max-width: 900px;
-  margin: auto;
-}
-
-.order-strip {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 32px;
-  background: var(--chocolate);
-  color: white;
-  text-decoration: none;
-  border-radius: 999px;
-
-  font-size: 1.1rem;
-  letter-spacing: 0.2em;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  transition: 0.2s;
-}
-
-.order-strip {
-  transition: background 0.25s ease,
-              transform 0.2s ease;
-}
-
-.order-strip:hover {
-  background: #8F9C5A;
-  transform: translateY(-2px);
-}
-.contact-inner p {
-  color: var(--mid);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-
-    .contact-link img {
-  height: 42px;
-  width: auto;
-  display: block;
-}
-
-.contact-inner a {
-  color: var(--caramel);
-  text-decoration: none;
-}
-
-#contact {
-  background: white;
-  padding: 90px 48px;
-  text-align: center;
-}
-
-.contact-inner {
-  max-width: 700px;
-  margin: auto;
-}
-
-.contact-inner h2 {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  color: var(--pistachio);
-  margin-bottom: 36px;
-}
-
-.contact-rekdi {
-  color: var(--mid);
-  line-height: 1.8;
-}
-
-.contact-rekdi a {
-  color: var(--caramel);
-  text-decoration: none;
-}
-
-.contact-divider {
-  width: 80px;
-  height: 1px;
-  background: rgba(59,56,39,0.15);
-  margin: 40px auto;
-}
-
-
-    .contact-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-bottom: 50px;
-}
-
-.contact-link img {
-  height: 48px;
-  width: auto;
-  display: block;
-}
-
-.contact-copy h3 {
-  font-family: 'Caveat', cursive;
-  font-size: 2.4rem;
-  color: var(--chocolate);
-  margin-bottom: 12px;
-}
-
-.contact-copy p {
-  color: var(--mid);
-  max-width: 500px;
-  margin: 0 auto 20px;
-  line-height: 1.7;
-}
-
-.contact-email {
-  color: var(--caramel);
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-footer {
-  background: white;
-  border-top: 1px solid rgba(59,56,39,0.08);
-  padding: 24px 48px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.f-note {
-  color: var(--mid);
-  font-size: 0.8rem;
-}
-
-.f-note a {
-  color: var(--chocolate);
-  text-decoration: none;
-}
-
-.f-note a:hover {
-  color: var(--caramel);
-}
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (max-width: 820px) {
-      nav {
-        padding: 18px 24px;
-      }
-
-     @media (max-width: 820px) {
   nav {
     padding: 14px 18px;
     flex-direction: column;
@@ -576,69 +386,73 @@ footer {
     min-height: calc(100vh - 150px);
     padding: 0 24px;
   }
+
+  #about {
+    padding: 70px 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  #oven {
+    padding: 70px 24px;
+  }
+
+  .menu-header {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 42px;
+  }
+
+  .menu-item {
+    grid-template-columns: 85px 1fr;
+    gap: 18px;
+    text-align: left;
+    align-items: center;
+    padding-bottom: 22px;
+  }
+
+  .menu-thumb {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+
+  .menu-item h3 {
+    font-size: 2.15rem;
+    margin-bottom: 6px;
+  }
+
+  .menu-price {
+    grid-column: 2;
+    text-align: left;
+    font-size: 1.45rem;
+    margin-top: -6px;
+  }
+
+  #order {
+    padding: 60px 24px;
+  }
+
+  .order-strip {
+    padding: 24px 18px;
+    font-size: 0.9rem;
+  }
+
+  #contact {
+    padding: 70px 24px;
+  }
+
+  .contact-links {
+    gap: 36px;
+  }
+
+  footer {
+    padding: 24px;
+  }
 }
-
-      .hero-ticker {
-        top: 66px;
-        padding: 10px 24px;
-      }
-
-      #home {
-        padding-top: 130px;
-      }
-
-      .hero-body {
-        padding: 0 24px;
-      }
-
-      .hero-products {
-        top: 130px;
-      }
-
-      .hero-food {
-        width: 120px;
-        height: 120px;
-      }
-
-      #about {
-        padding: 70px 24px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      #oven {
-        padding: 80px 24px;
-      }
-
-      .menu-header {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .menu-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .menu-price {
-        text-align: left;
-      }
-
-      #order {
-        padding: 90px 24px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-        padding: 24px;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       .ticker-inner {
         animation: none;
