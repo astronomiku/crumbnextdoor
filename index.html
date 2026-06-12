@@ -340,20 +340,24 @@ white-space: nowrap;
   gap: 34px;
 }
 
+.menu-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .menu-item {
   display: grid;
-  grid-template-columns: 120px 1fr auto;
+  grid-template-columns: 130px minmax(0, 1fr) minmax(180px, auto);
   gap: 28px;
   align-items: center;
-  padding-bottom: 26px;
-  border-bottom: 1px solid rgba(59,56,39,0.12);
 }
 
 .menu-thumb {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  display: block;
+  justify-self: center;
+}
+
+.menu-price {
+  text-align: right;
 }
 
 .menu-item h3 {
