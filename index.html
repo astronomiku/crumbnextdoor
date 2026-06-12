@@ -354,24 +354,31 @@ white-space: nowrap;
 }
 
 @media (max-width: 820px) {
-  .menu-header {
-    flex-direction: column;
-    gap: 8px;
-  }
 
   .menu-item {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    text-align: center;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    text-align: left;
+    align-items: center;
   }
 
   .menu-thumb {
-    margin: auto;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+
+  .menu-item h3 {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
   }
 
   .menu-price {
-    text-align: center;
+    text-align: left;
+    font-size: 1.4rem;
+    margin-top: 6px;
   }
+
 }
 #order {
   background: var(--paper);
