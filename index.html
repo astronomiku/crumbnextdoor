@@ -388,13 +388,41 @@ white-space: nowrap;
   }
 
   #about {
-    padding: 70px 24px;
-  }
+  padding: 50px 24px;
+}
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 100%;
+}
+
+.owners-photo {
+  width: min(320px, 90vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.about-text {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.about-text h2 {
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+.section-label {
+  margin-bottom: 10px;
+}
 
   #oven {
     padding: 70px 24px;
