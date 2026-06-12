@@ -553,9 +553,23 @@ white-space: nowrap;
   display: block;
 }
 .about-text {
+  position: relative;
+  min-width: 0;
   width: 100%;
-  max-width: 100%;
-  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.about-text::before {
+  content: "";
+  position: absolute;
+  inset: -40px -60px;
+  background-image: url("assets/flour.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.22;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .about-text h2 {
@@ -712,7 +726,6 @@ white-space: nowrap;
   <div class="torn"></div>
 
   <section id="about">
-        <img src="assets/flour.png" class="about-flour" alt="">
     <div class="about-grid">
 
       <div class="about-image-wrap reveal">
