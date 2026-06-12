@@ -415,8 +415,30 @@ white-space: nowrap;
   background: white;
   padding: 80px 48px 70px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+    #contact::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  bottom: -120px;
+  width: 700px;
+  height: 700px;
+  background-image: url("assets/crumbs.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+}
 .contact-inner {
   max-width: 700px;
   margin: auto;
@@ -492,9 +514,9 @@ white-space: nowrap;
 
     .cookie-contact {
   position: fixed;
-  right: 20px;
+   right: 20px;
   bottom: 20px;
-  width: 65px;
+  width: 90px;
   z-index: 999;
   transition: transform 0.25s ease;
 }
@@ -605,7 +627,7 @@ white-space: nowrap;
   }
 
   .cookie-contact {
-  width: 50px;
+  width: 65px;
   right: 14px;
   bottom: 14px;
 }
