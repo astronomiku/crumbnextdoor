@@ -248,13 +248,20 @@ white-space: nowrap;
     }
 
 #about {
-  background-color: var(--paper);
-  background-image: url("assets/flour.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 85%;
+  background: var(--paper);
   padding: 100px 48px;
   position: relative;
+  overflow: hidden;
+}
+
+.about-flour {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 420px;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about-grid {
