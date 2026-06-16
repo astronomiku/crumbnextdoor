@@ -83,13 +83,15 @@ footer {
 }
 
 .nav-logo {
-  font-family: 'Caveat', cursive;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--pistachio);
-  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
+.nav-logo img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
     .nav-links {
       display: flex;
       gap: 36px;
@@ -553,7 +555,7 @@ white-space: nowrap;
   }
 
   .nav-logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .nav-links {
@@ -694,7 +696,9 @@ white-space: nowrap;
 <body>
 
   <nav>
-    <a href="#home" class="nav-logo">Crumb Next Door</a>
+  <a href="#home" class="nav-logo">
+  <img src="assets/cndc.png" alt="Crumb Next Door">
+</a>
 
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
