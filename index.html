@@ -543,9 +543,10 @@ white-space: nowrap;
 
 .contact-copy p {
   color: var(--mid);
-  max-width: 500px;
+  max-width: min(100%, 44ch);
   margin: 0 auto 10px;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-wrap: balance;
 }
 
 .contact-email-label {
@@ -1150,8 +1151,7 @@ white-space: nowrap;
    <div class="contact-copy">
 
   <p>
-    For collaborations, wholesale orders, product development,
-    and other inquiries.
+    For collaborations, wholesale orders, product development, and other inquiries.
   </p>
 
   <p class="contact-email-label">
