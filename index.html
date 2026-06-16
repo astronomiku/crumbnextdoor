@@ -322,12 +322,12 @@ white-space: nowrap;
 
  #oven {
   background: var(--cream);
-  padding: 100px 48px;
+  padding: clamp(88px, 6vw, 116px) clamp(36px, 4.5vw, 72px);
 }
 
 .menu-header {
-  max-width: 900px;
-  margin: 0 auto 70px;
+  max-width: 1160px;
+  margin: 0 auto clamp(60px, 5vw, 82px);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -336,20 +336,20 @@ white-space: nowrap;
 
 .menu-header h2 {
   font-family: 'Caveat', cursive;
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-size: clamp(3.8rem, 6.8vw, 7rem);
   line-height: 0.85;
   color: var(--pistachio);
 }
 
 .menu-count {
-  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--caramel);
 }
 
 .menu-list {
-  max-width: 1060px;
+  max-width: 1160px;
   margin: auto;
   display: grid;
   gap: 26px;
@@ -360,7 +360,7 @@ white-space: nowrap;
 }
 
 .menu-group-title {
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 1vw, 1.15rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--pistachio);
@@ -372,16 +372,16 @@ white-space: nowrap;
 
 .menu-item {
   display: grid;
-  grid-template-columns: minmax(190px, 230px) minmax(0, 1fr) minmax(150px, auto);
-  gap: clamp(22px, 4vw, 42px);
+  grid-template-columns: minmax(210px, 270px) minmax(0, 1fr) minmax(160px, auto);
+  gap: clamp(26px, 4vw, 52px);
   align-items: center;
   padding: 18px 0 26px;
   border-bottom: 1px solid rgba(59,56,39,0.08);
 }
 
 .menu-thumb {
-  width: clamp(180px, 19vw, 220px);
-  height: clamp(180px, 19vw, 220px);
+  width: clamp(200px, 17vw, 270px);
+  height: clamp(200px, 17vw, 270px);
   object-fit: contain;
   display: block;
   justify-self: center;
@@ -389,13 +389,13 @@ white-space: nowrap;
 }
 
 .menu-item h3 {
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-size: clamp(2.05rem, 3vw, 3.2rem);
 }
 
 
 .menu-item h3 {
   font-family: 'Caveat', cursive;
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-size: clamp(2.05rem, 3vw, 3.2rem);
   line-height: 0.9;
   color: var(--ink);
   margin-bottom: 8px;
@@ -406,9 +406,9 @@ white-space: nowrap;
 }
 
 .menu-item p {
-  max-width: 420px;
+  max-width: 500px;
   color: var(--mid);
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
   line-height: 1.5;
 }
 
@@ -425,9 +425,9 @@ white-space: nowrap;
   background: transparent;
   color: var(--mid);
   border-radius: 999px;
-  padding: 7px 12px;
+  padding: 7px 13px;
   font: inherit;
-  font-size: 0.82rem;
+  font-size: clamp(0.82rem, 0.85vw, 0.9rem);
   line-height: 1;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -443,7 +443,7 @@ white-space: nowrap;
 .menu-price {
   font-family: 'Caveat', cursive;
   color: var(--caramel);
-  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  font-size: clamp(1.65rem, 2.2vw, 2.25rem);
   line-height: 1.15;
   text-align: right;
   white-space: nowrap;
