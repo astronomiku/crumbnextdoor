@@ -351,18 +351,18 @@ white-space: nowrap;
   gap: 26px;
 }
 
-.menu-group {
-  margin-bottom: 56px;
+ .menu-group {
+  margin-bottom: 60px;
 }
 
 .menu-group-title {
   font-size: 0.8rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--caramel);
-  margin-bottom: 22px;
-  border-bottom: 1px solid rgba(59,56,39,0.12);
+  margin-bottom: 24px;
   padding-bottom: 10px;
+  border-bottom: 1px solid rgba(59,56,39,0.12);
 }
 
 .menu-item {
@@ -382,40 +382,25 @@ white-space: nowrap;
 }
 
 .menu-item h3 {
-  font-family: 'Caveat', cursive;
   font-size: clamp(1.9rem, 3vw, 2.8rem);
-  line-height: 0.95;
-  color: var(--ink);
-  margin-bottom: 6px;
 }
 
-.menu-item p {
-  color: var(--mid);
-  line-height: 1.5;
-  font-size: 0.88rem;
+
+.menu-item h3 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 0.9;
+  color: var(--ink);
+  margin-bottom: 8px;
 }
 
 .menu-price {
   font-family: 'Caveat', cursive;
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
   color: var(--caramel);
   text-align: right;
   white-space: nowrap;
 }
 
-    .menu-group {
-  margin-bottom: 60px;
-}
-
-.menu-group-title {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--caramel);
-  margin-bottom: 24px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(59,56,39,0.12);
-}
     #order {
   background: var(--paper);
   padding: 80px 48px;
@@ -813,19 +798,10 @@ white-space: nowrap;
     <span class="menu-count">Fresh from the oven</span>
   </div>
 
-  <div class="menu-list">
+<div class="menu-list">
 
-    <div class="menu-item reveal">
-      <img src="assets/cookies.png" alt="Cookies" class="menu-thumb">
-      <div>
-        <h3>Cookies</h3>
-        <p>Chocolate chip | Oreo | Raspberry | Brookies</p>
-      </div>
-      <div class="menu-price">
-        8 pcs — ₱1120<br>
-        12 pcs — ₱1630
-      </div>
-    </div>
+  <div class="menu-group">
+    <h3 class="menu-group-title">Soft & Cheesy</h3>
 
     <div class="menu-item reveal">
       <img src="assets/cheeserolls.png" alt="Cheese Rolls" class="menu-thumb">
@@ -839,15 +815,15 @@ white-space: nowrap;
     </div>
 
     <div class="menu-item reveal">
-  <img src="assets/ubecheese.png" alt="Ube Cheese Rolls" class="menu-thumb">
-  <div>
-    <h3>Ube Cheese Rolls</h3>
-  </div>
-  <div class="menu-price">
-    8 pcs — ₱560<br>
-    12 pcs — ₱790
-  </div>
-</div>
+      <img src="assets/ubecheese.png" alt="Ube Cheese Rolls" class="menu-thumb">
+      <div>
+        <h3>Ube Cheese Rolls</h3>
+      </div>
+      <div class="menu-price">
+        8 pcs — ₱560<br>
+        12 pcs — ₱790
+      </div>
+    </div>
 
     <div class="menu-item reveal">
       <img src="assets/saltbread.png" alt="Salt Bread" class="menu-thumb">
@@ -857,6 +833,22 @@ white-space: nowrap;
       <div class="menu-price">
         8 pcs — ₱520<br>
         12 pcs — ₱730
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-group">
+    <h3 class="menu-group-title">Sweet</h3>
+
+    <div class="menu-item reveal">
+      <img src="assets/cookies.png" alt="Cookies" class="menu-thumb">
+      <div>
+        <h3>Cookies</h3>
+        <p>Chocolate Chip | Oreo | Raspberry | Brookies</p>
+      </div>
+      <div class="menu-price">
+        8 pcs — ₱1120<br>
+        12 pcs — ₱1630
       </div>
     </div>
 
@@ -883,6 +875,21 @@ white-space: nowrap;
     </div>
 
     <div class="menu-item reveal">
+      <img src="assets/cinnamonrolls.png" alt="Cinnamon Rolls" class="menu-thumb">
+      <div>
+        <h3>Cinnamon Rolls</h3>
+      </div>
+      <div class="menu-price">
+        4 pcs — ₱455<br>
+        8 pcs — ₱815
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-group">
+    <h3 class="menu-group-title">Cakes</h3>
+
+    <div class="menu-item reveal">
       <img src="assets/basque.png" alt="Basque Burnt Cheesecake" class="menu-thumb">
       <div>
         <h3>Basque Burnt Cheesecake</h3>
@@ -901,19 +908,9 @@ white-space: nowrap;
         Whole cake — ₱1450
       </div>
     </div>
-
-    <div class="menu-item reveal">
-      <img src="assets/cinnamonrolls.png" alt="Cinnamon Rolls" class="menu-thumb">
-      <div>
-        <h3>Cinnamon Rolls</h3>
-      </div>
-      <div class="menu-price">
-        4 pcs — ₱455<br>
-        8 pcs — ₱815
-      </div>
-    </div>
-
   </div>
+
+</div>
 </section>
 
 <section id="order">
