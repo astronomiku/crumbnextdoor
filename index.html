@@ -345,51 +345,76 @@ white-space: nowrap;
 }
 
 .menu-list {
-  max-width: 900px;
+  max-width: 980px;
   margin: auto;
   display: grid;
-  gap: 34px;
+  gap: 26px;
+}
+
+.menu-group {
+  margin-bottom: 56px;
+}
+
+.menu-group-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(59,56,39,0.12);
+  padding-bottom: 10px;
 }
 
 .menu-item {
   display: grid;
-  grid-template-columns: 130px minmax(0, 1fr) minmax(180px, auto);
-  gap: 28px;
+  grid-template-columns: 170px minmax(0, 1fr) minmax(150px, auto);
+  gap: 26px;
   align-items: center;
+  padding-bottom: 22px;
 }
 
 .menu-thumb {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   display: block;
   justify-self: center;
 }
 
-.menu-price {
-  text-align: right;
-}
-
 .menu-item h3 {
   font-family: 'Caveat', cursive;
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
-  line-height: 0.9;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 0.95;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .menu-item p {
   color: var(--mid);
-  line-height: 1.7;
-  font-size: 0.95rem;
+  line-height: 1.5;
+  font-size: 0.88rem;
 }
 
 .menu-price {
   font-family: 'Caveat', cursive;
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
   color: var(--caramel);
   text-align: right;
   white-space: nowrap;
+}
+
+    .menu-group {
+  margin-bottom: 60px;
+}
+
+.menu-group-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(59,56,39,0.12);
 }
     #order {
   background: var(--paper);
