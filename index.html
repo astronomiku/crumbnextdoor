@@ -1202,24 +1202,14 @@ white-space: nowrap;
   margin-bottom: 12px;
 }
 
-/* Banana muffins is a wide, low photo — keep its frame proportioned to that
-   instead of forcing a square, otherwise it'd fill only a thin strip
-   through the middle of the box. */
-.menu-item > img[src$="bananamuffins.png"] {
-  width: 100%;
-  height: auto;
-  max-height: clamp(190px, 16vw, 240px);
-  aspect-ratio: 1.9 / 1;
-}
-
-/* Cinnamon rolls: a wide-but-proportioned frame made it fully fill its own
-   box but still read as visibly shorter/smaller than the square frames
-   beside it. Keep the frame square like the rest of the grid, and crop
-   (object-fit: cover) to fill that square completely — this trims a bit of
-   empty plate margin on the sides, not the roll itself. */
-.menu-item > img[src$="cinnamonrolls.png"] {
-  object-fit: cover;
-}
+/* Every frame is the same square, at the same size, for every item — no
+   per-item exceptions, and the frame's own clamp() is the only thing that
+   controls size, so it only grows on a bigger window and never shrinks
+   below its floor (resizing the grid just changes the column count).
+   All photos use object-fit: contain — the full photo always shows, never
+   cropped by CSS. Any "empty space" trimming happens at the source-file
+   level (removing blank margin around the food) so contain has as little
+   letterboxing as possible to shrink into. */
 
 .menu-item > div:not(.menu-price) {
   position: static;
@@ -1241,13 +1231,10 @@ white-space: nowrap;
 
 .cookie-options { margin-top: 5px; }
 
-@media (max-width: 760px) {
-  .menu-item > .menu-thumb { height: clamp(170px, 44vw, 220px); }
-}
-
-@media (max-width: 430px) {
-  .menu-item > .menu-thumb { height: 170px; }
-}
+/* Frame size is intentionally NOT reduced at narrow widths — only the
+   .menu-group column count changes as the window shrinks (see the
+   consolidated breakpoints below). The frame itself keeps its 190px floor
+   at every width, so cards never shrink, just rearrange into fewer columns. */
 
 /* Keep the persistent logo in its own rail and arrange the seven products in rows. */
 .menu-board {
