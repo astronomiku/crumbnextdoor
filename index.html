@@ -109,6 +109,11 @@ section[id] {
 
 .nav-tagline {
   display: none;
+  text-decoration: none;
+}
+
+.tagline-divider {
+  display: none;
 }
 
 .nav-logo img {
@@ -1379,10 +1384,8 @@ white-space: nowrap;
   .nav-logo {
     left: 0;
     width: var(--rail);
-    padding: 8px 18px 10px;
-    flex-direction: column;
+    padding: 8px 18px 0;
     justify-content: center;
-    gap: 6px;
     z-index: 103;
   }
 
@@ -1394,19 +1397,39 @@ white-space: nowrap;
 
   .nav-tagline {
     display: block;
+    position: fixed;
+    left: 0;
+    top: var(--rail);
+    z-index: 102;
+    width: var(--rail);
+    padding: 6px 14px 0;
     font-family: 'Caveat', cursive;
-    font-size: clamp(14px, 2vw, 19px);
-    line-height: 1.25;
+    font-size: clamp(16px, 4.2vw, 24px);
+    line-height: 1.35;
     color: var(--mid);
     text-align: center;
     text-decoration: none;
     margin: 0;
   }
 
+  .tagline-divider {
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--rail) + clamp(88px, 14.5vw, 120px));
+    z-index: 102;
+    width: 44px;
+    height: 1px;
+    background: #74794b;
+    opacity: .55;
+    pointer-events: none;
+  }
+
   .menu-note {
     display: flex;
     width: var(--rail);
-    top: calc(var(--rail) + clamp(28px, 3.4vw, 40px));
+    top: calc(var(--rail) + clamp(115px, 17.5vw, 150px));
     padding: 18px 42px 24px;
   }
 
@@ -1534,8 +1557,9 @@ white-space: nowrap;
 
   <a href="#oven" class="nav-logo">
   <img src="assets/cndlogogold.png" alt="Crumb Next Door">
-  <p class="nav-tagline">Three Minds. One Oven. Endless pastries.</p>
 </a>
+  <p class="nav-tagline">Three Minds.<br>One Oven.<br>Endless pastries.</p>
+  <div class="tagline-divider" aria-hidden="true"></div>
 
   <nav>
     <ul class="nav-links">
