@@ -1151,14 +1151,17 @@ white-space: nowrap;
 
 @media (max-width: 620px) {
   .nav-links {
-    width: 184px;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: end;
-    column-gap: 14px;
-    row-gap: 1px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: clamp(10px, 3vw, 14px);
+    width: auto;
+    max-width: calc(100vw - var(--rail) - 24px);
   }
-  .nav-links a { font-size: 1.05rem; }
+  .nav-links a {
+    font-size: clamp(.85rem, 3.4vw, 1.05rem);
+    white-space: nowrap;
+  }
 }
 
 @media (min-width: 761px) and (max-width: 980px) {
@@ -1167,7 +1170,6 @@ white-space: nowrap;
 
 @media (max-width: 430px) {
   nav { justify-content: flex-end; }
-  .nav-links { width: 178px; }
   .nav-logo img { height: 148px; }
   .menu-item { grid-template-columns: 104px minmax(0, 1fr) auto; gap: 8px; }
   .menu-thumb { width: 104px; height: 100px; }
@@ -1556,7 +1558,7 @@ white-space: nowrap;
     </div>
 
     <div class="menu-item reveal">
-      <img src="assets/saltbread.png" alt="Salt Bread" class="menu-thumb">
+      <img src="assets/saltbread.jpg" alt="Salt Bread" class="menu-thumb">
       <div>
         <h3>Salt Bread</h3>
       </div>
@@ -1577,8 +1579,8 @@ white-space: nowrap;
         <p>Choose your flavor.</p>
         <div class="cookie-options" aria-label="Cookie flavor options">
           <button type="button" class="cookie-option is-active" data-cookie-image="assets/chococookie.png" data-cookie-alt="Chocolate Chip Cookies">Chocolate Chip</button>
-          <button type="button" class="cookie-option" data-cookie-image="assets/cookieoreo.png" data-cookie-alt="Oreo Cookies">Oreo</button>
-          <button type="button" class="cookie-option" data-cookie-image="assets/raspberry.png" data-cookie-alt="Raspberry Cookies">Raspberry</button>
+          <button type="button" class="cookie-option" data-cookie-image="assets/cookieoreo.jpg" data-cookie-alt="Oreo Cookies">Oreo</button>
+          <button type="button" class="cookie-option" data-cookie-image="assets/raspberry.jpg" data-cookie-alt="Raspberry Cookies">Raspberry</button>
           <button type="button" class="cookie-option" data-cookie-image="assets/brookie.png" data-cookie-alt="Brookies">Brookie</button>
         </div>
       </div>
