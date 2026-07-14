@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>ca
+  <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -31,6 +31,10 @@
   --sage: #C8CCAD;
   --chocolate: #4A2C1D;
     --pistachio: #8F9C5A;
+    /* Width of the fixed left brand rail (logo + schedule note). Scales
+       with viewport instead of staying a flat 300px, so it doesn't eat a
+       disproportionate share of the window on mid-size screens. */
+    --rail: clamp(220px, 26vw, 320px);
 }
   
 
@@ -90,13 +94,21 @@ section[id] {
 .nav-logo {
   display: flex;
   align-items: center;
-  
+  position: fixed;
+  left: clamp(18px, 4vw, 64px);
+  top: 0;
+  z-index: 101;
+  padding: 8px 12px 14px;
+  background: #fbf7ee;
+  border-radius: 0 0 24px 24px;
 }
 
 .nav-logo img {
-  width: 260px;
-  height: auto;
+  width: auto;
+  height: clamp(220px, 18vw, 290px);
+  object-fit: contain;
   display: block;
+  filter: drop-shadow(0 8px 10px rgba(74, 44, 29, .08));
 }
 
     .nav-inner {
@@ -108,6 +120,10 @@ section[id] {
       display: flex;
       gap: 36px;
       list-style: none;
+      position: absolute;
+      right: clamp(18px, 4vw, 64px);
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .nav-links a {
@@ -283,16 +299,16 @@ white-space: nowrap;
   max-width: 1120px;
   margin: auto;
   display: grid;
-  grid-template-columns: minmax(280px, 38%) minmax(0, 1fr);
+  grid-template-columns: minmax(360px, 48%) minmax(0, 1fr);
   gap: clamp(28px, 5vw, 56px);
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 1;
 }
 
 .owners-photo {
   width: 100%;
-  max-width: 500px;
+  max-width: 650px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -567,8 +583,9 @@ white-space: nowrap;
   border-top: 1px solid rgba(59,56,39,0.08);
   padding: 12px 48px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .f-note {
@@ -585,17 +602,41 @@ white-space: nowrap;
     .cookie-contact {
       transform: rotate(-8deg);
   position: fixed;
-   right: 20px;
-  bottom: 20px;
+  right: 46px;
+  bottom: 46px;
   width: 95px;
   z-index: 999;
   transition: transform 0.25s ease;
+  display: block;
 }
 
 .cookie-contact img {
   width: 100%;
   display: block;
   filter: drop-shadow(0 6px 14px rgba(74,44,29,0.18));
+}
+
+.cookie-order-ring {
+  position: absolute;
+  width: 142%;
+  height: 142%;
+  left: -21%;
+  top: -21%;
+  overflow: visible;
+  pointer-events: none;
+  animation: orderRingSpin 12s linear infinite;
+}
+
+@keyframes orderRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.cookie-order-ring text {
+  fill: var(--caramel);
+  font-family: 'Caveat', cursive;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
 }
 
 
@@ -617,11 +658,6 @@ white-space: nowrap;
 @media (max-width: 980px) {
   #about {
     padding: 72px 32px;
-  }
-
-  .about-grid {
-    grid-template-columns: minmax(240px, 36%) minmax(0, 1fr);
-    gap: 32px;
   }
 
   .about-image-wrap {
@@ -684,9 +720,20 @@ white-space: nowrap;
   }
 
   .nav-logo img {
-    width: clamp(150px, 42vw, 220px);
-    height: auto;
+    width: auto;
+    height: clamp(142px, 38vw, 172px);
     display: block;
+  }
+
+  .nav-logo {
+    left: 8px;
+    top: 0;
+    padding: 5px 7px 10px;
+  }
+
+  .nav-links {
+    margin-left: auto;
+    right: 14px;
   }
 
   .nav-links {
@@ -733,8 +780,8 @@ white-space: nowrap;
 
   .cookie-contact {
     width: clamp(82px, 22vw, 110px);
-    right: 10px;
-    bottom: 10px;
+    right: 34px;
+    bottom: 34px;
   }
 
   #order {
@@ -756,12 +803,36 @@ white-space: nowrap;
 
   footer {
     padding: 8px 18px;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
   }
 
   .f-note {
     font-size: 0.7rem;
+  }
+}
+
+/* Stack the About section well before the two-column layout gets cramped
+   against the fixed rail (rather than waiting until true mobile widths). */
+@media (max-width: 1023px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-image-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    text-align: center;
   }
 }
 
@@ -774,13 +845,8 @@ white-space: nowrap;
     padding: 34px 24px 50px;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
   .owners-photo {
-    max-width: min(76vw, 280px);
+    max-width: min(92vw, 390px);
   }
 
   .about-text {
@@ -834,7 +900,7 @@ white-space: nowrap;
   }
 
   .cookie-contact {
-    width: 54px;
+    width: 70px;
   }
 
   .contact-links {
@@ -870,9 +936,699 @@ white-space: nowrap;
   }
 }
 
+/* Compact editorial menu inspired by the printed bake-sheet layout. */
+#oven {
+  background: #fbf7ee;
+  padding: clamp(118px, 10vw, 138px) clamp(24px, 5vw, 80px) clamp(50px, 5vw, 72px);
+}
+
+.menu-header {
+  display: block;
+  max-width: 1180px;
+  margin: 0 auto clamp(30px, 3vw, 44px);
+  text-align: center;
+}
+
+.menu-header h2 {
+  color: var(--chocolate);
+  font-size: clamp(4rem, 6vw, 6.4rem);
+  line-height: .8;
+  margin-bottom: 18px;
+}
+
+.menu-header p {
+  color: #666a3e;
+  font-weight: 600;
+  font-size: clamp(.92rem, 1.15vw, 1.1rem);
+  line-height: 1.35;
+}
+
+.menu-board {
+  max-width: 1420px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 250px);
+  gap: clamp(42px, 5vw, 76px);
+  align-items: stretch;
+}
+
+.menu-list {
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(42px, 4vw, 68px);
+}
+
+.menu-group {
+  margin: 0;
+}
+
+.menu-group-title {
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--chocolate);
+  margin-bottom: 12px;
+  padding: 0 0 5px;
+  border-bottom: 2px solid #74794b;
+}
+
+.menu-item {
+  min-height: 158px;
+  grid-template-columns: clamp(132px, 11vw, 168px) minmax(0, 1fr) auto;
+  gap: clamp(12px, 1.5vw, 22px);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(74, 44, 29, .14);
+}
+
+.menu-thumb {
+  width: clamp(132px, 11vw, 168px);
+  height: 142px;
+  filter: drop-shadow(0 8px 8px rgba(74,44,29,.12));
+}
+
+.cinnamon-frame {
+  width: clamp(132px, 11vw, 168px);
+  height: 142px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.cinnamon-frame .cinnamon-thumb {
+  width: 100%;
+  height: 100%;
+  transform: scale(2.65);
+  transform-origin: center;
+}
+
+.menu-item h3,
+.menu-item h3:first-child {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(.9rem, 1.15vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.menu-item p {
+  font-size: .76rem;
+  margin-top: 3px;
+}
+
+.menu-price {
+  font-family: 'DM Sans', sans-serif;
+  color: #9b572f;
+  font-size: clamp(.76rem, .92vw, .9rem);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.cookie-options {
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.cookie-option {
+  padding: 4px 7px;
+  font-size: .65rem;
+}
+
+.menu-note {
+  border-left: 1px solid rgba(74, 44, 29, .14);
+  padding: 24px 0 18px clamp(30px, 3vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #62663c;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+.menu-note p + p {
+  margin-top: 28px;
+}
+
+.menu-schedule {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  line-height: 1.35;
+}
+
+.menu-heart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 2px;
+  font-size: .8rem;
+}
+
+.menu-heart span {
+  width: 44px;
+  height: 1px;
+  background: #74794b;
+}
+
+@media (min-width: 821px) {
+  nav {
+    height: 86px;
+    padding: 0 clamp(28px, 5vw, 76px);
+    background: rgba(251, 247, 238, .94);
+  }
+
+  .nav-logo img { width: auto; height: clamp(220px, 18vw, 290px); }
+  .nav-links a { font-size: 1.55rem; }
+  section[id] { scroll-margin-top: 96px; }
+}
+
+@media (max-width: 900px) {
+  .menu-board { grid-template-columns: 1fr; }
+  .menu-note {
+    border-left: 0;
+    border-top: 1px solid rgba(74,44,29,.14);
+    padding: 28px 0 0;
+    display: grid;
+    grid-template-columns: 1.1fr auto 1fr 1.2fr;
+    align-items: center;
+    gap: 24px;
+  }
+  .menu-note p + p { margin-top: 0; }
+  .menu-heart { margin: 0; }
+}
+
+@media (max-width: 760px) {
+  #oven { padding: 118px 20px 52px; }
+  .menu-header { margin-bottom: 30px; }
+  .menu-list { grid-template-columns: 1fr; gap: 36px; }
+  .menu-item {
+    min-height: 126px;
+    grid-template-columns: 112px minmax(0, 1fr) auto;
+    grid-template-areas: none;
+    justify-items: stretch;
+    text-align: left;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .menu-thumb {
+    grid-area: auto;
+    width: 112px;
+    height: 108px;
+    margin: 0;
+  }
+  .cinnamon-frame {
+    width: 112px;
+    height: 108px;
+  }
+  .cinnamon-frame .cinnamon-thumb { transform: scale(2.35); }
+  .menu-item > div:not(.menu-price) { grid-area: auto; align-self: center; }
+  .menu-price {
+    grid-area: auto;
+    align-self: center;
+    text-align: right;
+    white-space: nowrap;
+    font-size: .74rem;
+  }
+  .menu-item h3,
+  .menu-item h3:first-child { font-size: .95rem; }
+  .menu-note {
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+  }
+  .menu-note p + p { margin-top: 20px; }
+  .menu-heart { justify-content: center; margin: 18px 0 0; }
+}
+
+@media (max-width: 620px) {
+  .nav-links {
+    width: 184px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: end;
+    column-gap: 14px;
+    row-gap: 1px;
+  }
+  .nav-links a { font-size: 1.05rem; }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .cinnamon-frame { grid-area: photo; }
+}
+
+@media (max-width: 430px) {
+  nav { justify-content: flex-end; }
+  .nav-links { width: 178px; }
+  .nav-logo img { height: 148px; }
+  .menu-item { grid-template-columns: 104px minmax(0, 1fr) auto; gap: 8px; }
+  .menu-thumb { width: 104px; height: 100px; }
+  .cinnamon-frame { width: 104px; height: 100px; }
+  .menu-price { font-size: .67rem; }
+}
+
+/* Image-led menu cards: photo on top, details stacked below — never overlapping. */
+.menu-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Every photo fills its frame edge-to-edge via a crop (object-fit: cover)
+   instead of the old mix of "contain" + manual transform:scale hacks —
+   those could bleed past the card's own box into the cards beside it
+   (that's what was happening with the cinnamon rolls photo). Cover never
+   paints outside its box, so this can't overlap neighboring cards. */
+.menu-item > .menu-thumb {
+  width: 100%;
+  height: clamp(190px, 16vw, 240px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: rgba(74, 44, 29, .04);
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+/* The cinnamon roll photo has a lot of empty plate/background around the
+   actual roll, so it reads small even when cropped to fill the frame.
+   Zoom in on it — safe now that .menu-item clips overflow, so this can't
+   spill into the cards beside it the way the old transform hack did. */
+.menu-item > img[src$="cinnamonrolls.png"] {
+  transform: scale(1.6);
+  transform-origin: center;
+}
+
+.menu-item > div:not(.menu-price) {
+  position: static;
+  max-width: 100%;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+}
+
+.menu-item > .menu-price {
+  position: static;
+  padding: 6px 0 0;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+  text-align: left;
+}
+
+.cookie-options { margin-top: 5px; }
+
+@media (max-width: 760px) {
+  .menu-item > .menu-thumb { height: clamp(170px, 44vw, 220px); }
+}
+
+@media (max-width: 430px) {
+  .menu-item > .menu-thumb { height: 170px; }
+}
+
+/* Keep the persistent logo in its own rail and arrange the seven products in rows. */
+.menu-board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+}
+
+.menu-list {
+  display: block;
+}
+
+.menu-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 34px);
+  margin-bottom: 38px;
+}
+
+.menu-group-title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.menu-group:last-child .menu-item:last-child {
+  grid-column: 2;
+}
+
+.menu-note {
+  width: 100%;
+  border-left: 0;
+  border-top: 1px solid rgba(74, 44, 29, .14);
+  padding: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.menu-note p + p,
+.menu-heart { margin: 0; }
+
+/* From 560px up, the note is always part of the fixed left rail (matches
+   the nav-logo/rail-divider treatment) instead of switching to an in-flow
+   box that would render narrow and un-clearing of the fixed logo. */
+@media (min-width: 560px) {
+  .menu-board { gap: 0; }
+
+  .menu-note {
+    position: fixed;
+    left: 0;
+    top: clamp(250px, 22vw, 330px);
+    z-index: 90;
+    width: var(--rail);
+    padding: 22px clamp(24px, 4vw, 64px) 28px;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: center;
+    background: transparent;
+  }
+
+  .menu-note .menu-heart {
+    margin: 2px 0;
+  }
+
+  .menu-note p + p {
+    margin-top: 0;
+  }
+}
+
+.menu-note .cookie-contact {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  margin: 18px auto 0;
+  flex: 0 0 auto;
+}
+
+.cookie-contact.order-fab {
+  position: fixed;
+  left: 30px;
+  right: auto;
+  bottom: 30px;
+  width: 118px;
+  margin: 0;
+  z-index: 999;
+}
+
+.cookie-contact.order-fab:hover {
+  transform: rotate(-8deg);
+}
+
+.cookie-contact.order-fab:hover .cookie-order-ring {
+  animation-play-state: paused;
+}
+
+@media (min-width: 1100px) {
+  body::after {
+    content: '';
+    position: fixed;
+    z-index: 98;
+    top: 0;
+    bottom: 0;
+    left: clamp(300px, 22vw, 380px);
+    width: 3px;
+    pointer-events: none;
+    background: rgba(182, 122, 75, .55);
+    box-shadow: 1px 0 0 rgba(74, 44, 29, .09);
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1099px) {
+  body::after {
+    content: '';
+    position: fixed;
+    z-index: 98;
+    top: 0;
+    bottom: 0;
+    left: clamp(230px, 24vw, 270px);
+    width: 3px;
+    pointer-events: none;
+    background: rgba(182, 122, 75, .55);
+    box-shadow: 1px 0 0 rgba(74, 44, 29, .09);
+  }
+}
+
+@media (max-width: 820px) {
+  .cookie-contact.order-fab {
+    left: calc((var(--rail) - 94px) / 2);
+    right: auto;
+    bottom: 20px;
+    width: 94px;
+  }
+}
+
+/* Responsive rail: full only when there is enough room for logo and content. */
+@media (min-width: 1100px) {
+  body::after,
+  nav::after {
+    content: none;
+  }
+
+  nav {
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .rail-divider,
+  .nav-divider {
+    display: block;
+    position: fixed;
+    z-index: 105;
+    pointer-events: none;
+  }
+
+  .rail-divider {
+    left: clamp(300px, 22vw, 380px);
+    top: 82px;
+    bottom: 0;
+    width: 28px;
+    background: linear-gradient(to right, rgba(182, 122, 75, .3), transparent);
+  }
+
+  .nav-divider {
+    left: clamp(300px, 22vw, 380px);
+    right: 0;
+    top: 82px;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(182, 122, 75, .3), transparent);
+  }
+
+  .nav-logo {
+    z-index: 103;
+    left: 0;
+    width: clamp(300px, 22vw, 380px);
+    padding: 8px 18px 0;
+    justify-content: center;
+  }
+
+  .nav-logo img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .menu-note {
+    width: clamp(300px, 22vw, 380px);
+  }
+
+  footer {
+    margin-left: clamp(300px, 22vw, 380px);
+  }
+
+  .cookie-contact.order-fab {
+    left: clamp(91px, calc(11vw - 59px), 131px);
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1099px) {
+  body::after,
+  .menu-note {
+    display: none;
+  }
+
+  #oven {
+    padding-left: clamp(28px, 5vw, 56px);
+  }
+
+  #about,
+  #contact {
+    padding-left: clamp(32px, 5vw, 52px);
+  }
+
+  .nav-logo {
+    left: 14px;
+  }
+
+  .nav-logo img {
+    height: 160px;
+  }
+
+  .cookie-contact.order-fab {
+    left: 22px;
+    right: auto;
+    bottom: 24px;
+    width: 102px;
+  }
+}
+
+@media (max-width: 1099px) {
+  .rail-divider,
+  .nav-divider {
+    display: none;
+  }
+}
+
+/* Stable 300px brand rail; only the menu grid changes with available space. */
+@media (min-width: 560px) {
+  nav {
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .nav-logo {
+    left: 0;
+    width: var(--rail);
+    padding: 8px 18px 0;
+    justify-content: center;
+    z-index: 103;
+  }
+
+  .nav-logo img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .menu-note {
+    display: flex;
+    width: var(--rail);
+    top: var(--rail);
+    padding: 18px 42px 24px;
+  }
+
+  .rail-divider,
+  .nav-divider {
+    display: block;
+    position: fixed;
+    z-index: 105;
+    left: var(--rail);
+    pointer-events: none;
+  }
+
+  .rail-divider {
+    top: 82px;
+    bottom: 0;
+    width: 28px;
+    background: linear-gradient(to right, rgba(182, 122, 75, .3), transparent);
+  }
+
+  .nav-divider {
+    top: 82px;
+    right: 0;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(182, 122, 75, .3), transparent);
+  }
+
+  #oven,
+  #about,
+  #contact {
+    padding-left: var(--rail);
+  }
+
+  footer {
+    margin-left: var(--rail);
+  }
+
+  .cookie-contact.order-fab {
+    left: calc((var(--rail) - 118px) / 2);
+    width: 118px;
+  }
+}
+
+/* Single source of truth for the menu grid column count — replaces the
+   previous set of overlapping breakpoints that were fighting each other. */
+@media (max-width: 639px) {
+  .menu-group {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-group .menu-item,
+  .menu-group:first-child .menu-item:last-child,
+  .menu-group:last-child .menu-item:last-child {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .menu-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-group:first-child .menu-item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 12px);
+    justify-self: center;
+  }
+
+  .menu-group:last-child .menu-item:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-group {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .menu-group:first-child .menu-item:last-child {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .menu-group:last-child .menu-item:last-child {
+    grid-column: 2;
+    width: auto;
+  }
+}
+
+/* Always keep the name and price centered under the photo, and drop the
+   separator line that used to sit under each card — regardless of width. */
+.menu-item {
+  align-items: center;
+  border-bottom: none;
+}
+
+.menu-item > div:not(.menu-price),
+.menu-item > .menu-price {
+  text-align: center;
+}
+
+.menu-item .cookie-options {
+  justify-content: center;
+}
 
     @media (prefers-reduced-motion: reduce) {
       .ticker-inner {
+        animation: none;
+      }
+
+      .cookie-order-ring {
         animation: none;
       }
 
@@ -885,116 +1641,46 @@ white-space: nowrap;
 
 <body>
 
-  <nav>
-  <a href="#home" class="nav-logo">
-  <img src="assets/cndsalt.png" alt="Crumb Next Door">
+  <a href="#oven" class="nav-logo">
+  <img src="assets/cndlogo.png" alt="Crumb Next Door">
 </a>
 
+  <nav>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
       <li><a href="#oven">Menu</a></li>
-      <li><a href="#order">Order</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="hero-ticker">
-    <div class="ticker-inner">
-      <span class="ticker-item">Baking Fresh Every Tuesday, Thursday and Saturday</span>
-      <span class="ticker-item">Salt Bread</span>
-      <span class="ticker-item">Basque Burnt Cheesecake</span>
-      <span class="ticker-item">Cinnamon Rolls</span>
-      <span class="ticker-item">Made in Parañaque</span>
-      <span class="ticker-item">Order Now!</span>
+  <div class="rail-divider" aria-hidden="true"></div>
+  <div class="nav-divider" aria-hidden="true"></div>
 
-      <span class="ticker-item">Cheese Rolls</span>
-      <span class="ticker-item">Ube Cheese</span>
-      <span class="ticker-item">Basque Burnt Cheesecake - Biscoff</span>
-      <span class="ticker-item">Financier</span>
-      <span class="ticker-item">Cookies</span>
-      <span class="ticker-item">You deserve this!</span>
- 
+<aside class="menu-note" aria-label="Baking schedule and menu note">
+  <p class="menu-schedule">Freshly baked<br>every Tuesday,<br>Thursday &amp; Saturday.</p>
+  <div class="menu-heart" aria-hidden="true"><span></span>♥<span></span></div>
+  <p>Menus and availability<br>may change with the season.</p>
+</aside>
 
-      <span class="ticker-item">Baking Fresh Every Tuesday, Thursday and Saturday</span>
-      <span class="ticker-item">Salt Bread</span>
-      <span class="ticker-item">Basque Burnt Cheesecake</span>
-      <span class="ticker-item">Cinnamon Rolls</span>
-      <span class="ticker-item">Made in Parañaque</span>
-      <span class="ticker-item">Order Now!</span>
-
-     <span class="ticker-item">Cheese Rolls</span>
-      <span class="ticker-item">Ube Cheese</span>
-      <span class="ticker-item">Basque Burnt Cheesecake - Biscoff</span>
-      <span class="ticker-item">Financier</span>
-      <span class="ticker-item">Cookies</span>
-      <span class="ticker-item">You deserve this!</span>
-    </div>
-  </div>
-
-  <section id="home">
-    <div class="hero-body">
-
-
-      <div class="hero-center reveal" style="transition-delay:0.12s">
-        <img src="assets/cndlogo.png" alt="Crumb Next Door logo" class="main-logo">
-
-        <p class="hero-sub">
-          Three friends, one oven, endless pastries.
-        </p>
-
-  
-      </div>
-
-    </div>
-  </section>
-
-  <div class="torn"></div>
-
-  <section id="about">
-    <img src="assets/flour.png" class="about-flour" alt="">
-    <div class="about-grid">
-
-      <div class="about-image-wrap reveal">
-        <img src="assets/owners.png" alt="Crumb Next Door founders" class="owners-photo">
-      </div>
-
-      <div class="about-text reveal" style="transition-delay:0.12s">
-      
-
-        <h2>OUR STORY</h2>
-
-        <p>
-          We started baking as a creative outlet in college — something to do
-          between cramming and deadlines. What surprised us was how much we cared
-          about getting it right: the texture, the ratio, the moment it comes
-          out of the oven.
-        </p>
-
-        <p>
-          Each of us brings something different to the table, but we share the
-          same obsession with pastry done properly. Not just pretty — actually
-          good.
-        </p>
-
-        <p>
-          We're based in Parañaque and baking in small batches so every order
-          gets real attention. 
-        </p>
-          <p>
-          Thanks for supporting something homegrown.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="torn torn-cream"></div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform" target="_blank" rel="noopener" class="cookie-contact order-fab" aria-label="Open the Crumb Next Door order form">
+  <svg class="cookie-order-ring" viewBox="0 0 120 120" aria-hidden="true">
+    <defs>
+      <path id="orderCircle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
+    </defs>
+    <text>
+      <textPath href="#orderCircle" startOffset="1%">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
+    </text>
+  </svg>
+  <img src="assets/cookiewhite.png" alt="Order now">
+</a>
 
 <section id="oven">
   <div class="menu-header reveal">
     <h2>Menu</h2>
-    <span class="menu-count">Fresh from the oven</span>
+    <p>Soft, warm, and made with simple ingredients.<br>Baked fresh for you.</p>
   </div>
 
+<div class="menu-board">
 <div class="menu-list">
 
   <div class="menu-group">
@@ -1056,13 +1742,13 @@ white-space: nowrap;
     </div>
 
     <div class="menu-item reveal">
-      <img src="assets/bananamuffins.png" alt="Banana Muffins" class="menu-thumb">
+      <img src="assets/cinnamonrolls.png" alt="Cinnamon Rolls" class="menu-thumb">
       <div>
-        <h3>Banana Muffins</h3>
+        <h3>Cinnamon Rolls</h3>
       </div>
       <div class="menu-price">
-        6 pcs — ₱840<br>
-        12 pcs — ₱1580
+        4 pcs — ₱455<br>
+        8 pcs — ₱815
       </div>
     </div>
 
@@ -1078,28 +1764,47 @@ white-space: nowrap;
     </div>
 
     <div class="menu-item reveal">
-      <img src="assets/cinnamonrolls.png" alt="Cinnamon Rolls" class="menu-thumb">
+      <img src="assets/bananamuffins.png" alt="Banana Muffins" class="menu-thumb">
       <div>
-        <h3>Cinnamon Rolls</h3>
+        <h3>Banana Muffins</h3>
       </div>
       <div class="menu-price">
-        4 pcs — ₱455<br>
-        8 pcs — ₱815
+        6 pcs — ₱840<br>
+        12 pcs — ₱1580
       </div>
     </div>
   </div>
 
 </div>
+
+</div>
 </section>
 
-<section id="order">
-  <div class="order-inner">
-    <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform"
-      target="_blank"
-      class="order-strip">
-      PLACE AN ORDER
-    </a>
+<section id="about">
+  <img src="assets/flour.png" class="about-flour" alt="">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal">
+      <img src="assets/owners.png" alt="Crumb Next Door founders" class="owners-photo">
+    </div>
+
+    <div class="about-text reveal" style="transition-delay:0.12s">
+      <h2>OUR STORY</h2>
+      <p>
+        We started baking as a creative outlet in college — something to do
+        between cramming and deadlines. What surprised us was how much we cared
+        about getting it right: the texture, the ratio, the moment it comes
+        out of the oven.
+      </p>
+      <p>
+        Each of us brings something different to the table, but we share the
+        same obsession with pastry done properly. Not just pretty — actually good.
+      </p>
+      <p>
+        We're based in Parañaque and baking in small batches so every order
+        gets real attention.
+      </p>
+      <p>Thanks for supporting something homegrown.</p>
+    </div>
   </div>
 </section>
 
@@ -1110,8 +1815,9 @@ white-space: nowrap;
 
     <div class="contact-links">
 
-      <a href="https://astronomiku.github.io/rekdi/"
+      <a href="https://rekdi.ph"
          target="_blank"
+         rel="noopener"
          class="contact-link">
         <img src="assets/rekdilogo.png" alt="REKDI">
       </a>
@@ -1198,8 +1904,5 @@ white-space: nowrap;
   });
 </script>
 
-  <a href="#contact" class="cookie-contact">
-  <img src="assets/cookiewhitecrumbs.png" alt="Contact Us">
-</a>
 </body>
 </html>
