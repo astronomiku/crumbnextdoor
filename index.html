@@ -638,9 +638,9 @@ white-space: nowrap;
 .cookie-order-ring text {
   fill: var(--caramel);
   font-family: 'Caveat', cursive;
-  font-size: 7.2px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.6px;
 }
 
 
@@ -1202,25 +1202,23 @@ white-space: nowrap;
   margin-bottom: 12px;
 }
 
-/* Banana muffins and cinnamon rolls are both wide, low photos — keep their
-   frames proportioned to the actual photo instead of forcing a square,
-   otherwise they'd only fill a thin strip through the middle of the box.
-   Anchoring on width:100% (with height derived from the ratio) instead of
-   the fixed height guarantees the frame's shape always exactly matches the
-   photo's shape, so contain has zero letterboxing to shrink into. */
-.menu-item > img[src$="bananamuffins.png"],
-.menu-item > img[src$="cinnamonrolls.png"] {
+/* Banana muffins is a wide, low photo — keep its frame proportioned to that
+   instead of forcing a square, otherwise it'd fill only a thin strip
+   through the middle of the box. */
+.menu-item > img[src$="bananamuffins.png"] {
   width: 100%;
   height: auto;
   max-height: clamp(190px, 16vw, 240px);
-}
-
-.menu-item > img[src$="bananamuffins.png"] {
   aspect-ratio: 1.9 / 1;
 }
 
+/* Cinnamon rolls: a wide-but-proportioned frame made it fully fill its own
+   box but still read as visibly shorter/smaller than the square frames
+   beside it. Keep the frame square like the rest of the grid, and crop
+   (object-fit: cover) to fill that square completely — this trims a bit of
+   empty plate margin on the sides, not the roll itself. */
 .menu-item > img[src$="cinnamonrolls.png"] {
-  aspect-ratio: 2 / 1;
+  object-fit: cover;
 }
 
 .menu-item > div:not(.menu-price) {
@@ -1530,7 +1528,7 @@ white-space: nowrap;
       <path id="orderCircle" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" />
     </defs>
     <text>
-      <textPath href="#orderCircle" startOffset="0%" textLength="280" lengthAdjust="spacingAndGlyphs">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
+      <textPath href="#orderCircle" startOffset="0%" textLength="280" lengthAdjust="spacingAndGlyphs">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
     </text>
   </svg>
   <img src="assets/cookiewhite.png" alt="Order now">
