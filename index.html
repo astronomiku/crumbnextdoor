@@ -1197,15 +1197,17 @@ white-space: nowrap;
   overflow: hidden;
 }
 
-/* Every photo fills its frame edge-to-edge via a crop (object-fit: cover)
-   instead of the old mix of "contain" + manual transform:scale hacks —
-   those could bleed past the card's own box into the cards beside it
-   (that's what was happening with the cinnamon rolls photo). Cover never
-   paints outside its box, so this can't overlap neighboring cards. */
+/* Every frame is the same fixed size, and every photo uses object-fit:
+   contain so it scales up to the largest size that fits inside the frame
+   without ever cropping any part of the plate/product. No per-image
+   transform:scale hacks — those either bled past the frame (cinnamon
+   rolls) or aren't needed since contain already maximizes fit on its own. */
 .menu-item > .menu-thumb {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: clamp(190px, 16vw, 240px);
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   object-position: center;
   display: block;
   background: rgba(74, 44, 29, .04);
@@ -1213,13 +1215,10 @@ white-space: nowrap;
   margin-bottom: 12px;
 }
 
-/* The cinnamon roll photo has a lot of empty plate/background around the
-   actual roll, so it reads small even when cropped to fill the frame.
-   Zoom in on it — safe now that .menu-item clips overflow, so this can't
-   spill into the cards beside it the way the old transform hack did. */
-.menu-item > img[src$="cinnamonrolls.png"] {
-  transform: scale(1.6);
-  transform-origin: center;
+/* Banana muffins is a wide, low photo (three muffins in a row) — keep its
+   frame proportioned to that instead of forcing it into a square. */
+.menu-item > img[src$="bananamuffins.png"] {
+  aspect-ratio: 1.9 / 1;
 }
 
 .menu-item > div:not(.menu-price) {
