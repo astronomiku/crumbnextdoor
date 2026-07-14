@@ -33,8 +33,12 @@
     --pistachio: #8F9C5A;
     /* Width of the fixed left brand rail (logo + schedule note). Scales
        with viewport instead of staying a flat 300px, so it doesn't eat a
-       disproportionate share of the window on mid-size screens. */
-    --rail: clamp(220px, 26vw, 320px);
+       disproportionate share of the window on mid-size or phone screens.
+       The rail is now permanent down to the smallest phone widths. */
+    --rail: clamp(128px, 34vw, 320px);
+    /* Order button width, scaled down proportionally on narrow rails so it
+       never crowds the logo/schedule text above it. */
+    --fab-w: clamp(80px, calc(var(--rail) * 0.72), 118px);
 }
   
 
@@ -634,9 +638,9 @@ white-space: nowrap;
 .cookie-order-ring text {
   fill: var(--caramel);
   font-family: 'Caveat', cursive;
-  font-size: 10.5px;
+  font-size: 7.2px;
   font-weight: 700;
-  letter-spacing: 1.25px;
+  letter-spacing: 0.4px;
 }
 
 
@@ -909,23 +913,6 @@ white-space: nowrap;
 }
 
 @media (max-width: 460px) {
-  nav {
-    justify-content: center;
-  }
-
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-  }
-
-  #home {
-    padding-top: 128px;
-  }
-
-  .hero-body {
-    min-height: auto;
-  }
-
   .menu-header h2 {
     font-size: clamp(3.25rem, 18vw, 4.8rem);
   }
@@ -1217,7 +1204,17 @@ white-space: nowrap;
 
 /* Banana muffins and cinnamon rolls are both wide, low photos — keep their
    frames proportioned to the actual photo instead of forcing a square,
-   otherwise they'd only fill a thin strip through the middle of the box. */
+   otherwise they'd only fill a thin strip through the middle of the box.
+   Anchoring on width:100% (with height derived from the ratio) instead of
+   the fixed height guarantees the frame's shape always exactly matches the
+   photo's shape, so contain has zero letterboxing to shrink into. */
+.menu-item > img[src$="bananamuffins.png"],
+.menu-item > img[src$="cinnamonrolls.png"] {
+  width: 100%;
+  height: auto;
+  max-height: clamp(190px, 16vw, 240px);
+}
+
 .menu-item > img[src$="bananamuffins.png"] {
   aspect-ratio: 1.9 / 1;
 }
@@ -1300,7 +1297,7 @@ white-space: nowrap;
 /* From 560px up, the note is always part of the fixed left rail (matches
    the nav-logo/rail-divider treatment) instead of switching to an in-flow
    box that would render narrow and un-clearing of the fixed logo. */
-@media (min-width: 560px) {
+@media (min-width: 0px) {
   .menu-board { gap: 0; }
 
   .menu-note {
@@ -1355,148 +1352,9 @@ white-space: nowrap;
   animation-play-state: paused;
 }
 
-@media (min-width: 1100px) {
-  body::after {
-    content: '';
-    position: fixed;
-    z-index: 98;
-    top: 0;
-    bottom: 0;
-    left: clamp(300px, 22vw, 380px);
-    width: 3px;
-    pointer-events: none;
-    background: rgba(182, 122, 75, .55);
-    box-shadow: 1px 0 0 rgba(74, 44, 29, .09);
-  }
-}
-
-@media (min-width: 821px) and (max-width: 1099px) {
-  body::after {
-    content: '';
-    position: fixed;
-    z-index: 98;
-    top: 0;
-    bottom: 0;
-    left: clamp(230px, 24vw, 270px);
-    width: 3px;
-    pointer-events: none;
-    background: rgba(182, 122, 75, .55);
-    box-shadow: 1px 0 0 rgba(74, 44, 29, .09);
-  }
-}
-
-@media (max-width: 820px) {
-  .cookie-contact.order-fab {
-    left: calc((var(--rail) - 94px) / 2);
-    right: auto;
-    bottom: 20px;
-    width: 94px;
-  }
-}
-
-/* Responsive rail: full only when there is enough room for logo and content. */
-@media (min-width: 1100px) {
-  body::after,
-  nav::after {
-    content: none;
-  }
-
-  nav {
-    border-bottom: 0;
-    box-shadow: none;
-  }
-
-  .rail-divider,
-  .nav-divider {
-    display: block;
-    position: fixed;
-    z-index: 105;
-    pointer-events: none;
-  }
-
-  .rail-divider {
-    left: clamp(300px, 22vw, 380px);
-    top: 82px;
-    bottom: 0;
-    width: 28px;
-    background: linear-gradient(to right, rgba(182, 122, 75, .3), transparent);
-  }
-
-  .nav-divider {
-    left: clamp(300px, 22vw, 380px);
-    right: 0;
-    top: 82px;
-    height: 28px;
-    background: linear-gradient(to bottom, rgba(182, 122, 75, .3), transparent);
-  }
-
-  .nav-logo {
-    z-index: 103;
-    left: 0;
-    width: clamp(300px, 22vw, 380px);
-    padding: 8px 18px 0;
-    justify-content: center;
-  }
-
-  .nav-logo img {
-    width: 100%;
-    height: auto;
-    max-height: none;
-  }
-
-  .menu-note {
-    width: clamp(300px, 22vw, 380px);
-  }
-
-  footer {
-    margin-left: clamp(300px, 22vw, 380px);
-  }
-
-  .cookie-contact.order-fab {
-    left: clamp(91px, calc(11vw - 59px), 131px);
-  }
-}
-
-@media (min-width: 821px) and (max-width: 1099px) {
-  body::after,
-  .menu-note {
-    display: none;
-  }
-
-  #oven {
-    padding-left: clamp(28px, 5vw, 56px);
-  }
-
-  #about,
-  #contact {
-    padding-left: clamp(32px, 5vw, 52px);
-  }
-
-  .nav-logo {
-    left: 14px;
-  }
-
-  .nav-logo img {
-    height: 160px;
-  }
-
-  .cookie-contact.order-fab {
-    left: 22px;
-    right: auto;
-    bottom: 24px;
-    width: 102px;
-  }
-}
-
-@media (max-width: 1099px) {
-  .rail-divider,
-  .nav-divider {
-    display: none;
-  }
-}
-
-/* Stable 300px brand rail; only the menu grid changes with available space. */
-@media (min-width: 560px) {
+/* The fixed left brand rail — logo, divider, schedule note, order button —
+   is active at every width from phones up. Single source of truth. */
+@media (min-width: 0px) {
   nav {
     border-bottom: 0;
     box-shadow: none;
@@ -1557,8 +1415,8 @@ white-space: nowrap;
   }
 
   .cookie-contact.order-fab {
-    left: calc((var(--rail) - 118px) / 2);
-    width: 118px;
+    left: calc((var(--rail) - var(--fab-w)) / 2);
+    width: var(--fab-w);
   }
 }
 
@@ -1669,10 +1527,10 @@ white-space: nowrap;
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform" target="_blank" rel="noopener" class="cookie-contact order-fab" aria-label="Open the Crumb Next Door order form">
   <svg class="cookie-order-ring" viewBox="0 0 120 120" aria-hidden="true">
     <defs>
-      <path id="orderCircle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
+      <path id="orderCircle" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" />
     </defs>
     <text>
-      <textPath href="#orderCircle" startOffset="1%">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
+      <textPath href="#orderCircle" startOffset="0%" textLength="280" lengthAdjust="spacingAndGlyphs">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
     </text>
   </svg>
   <img src="assets/cookiewhite.png" alt="Order now">
