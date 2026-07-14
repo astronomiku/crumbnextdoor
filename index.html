@@ -131,6 +131,8 @@
   );
   backdrop-filter: blur(12px);
   border-bottom: 2px solid rgba(182,122,75,0.18);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-ticker,
@@ -595,6 +597,7 @@ white-space: nowrap;
 .contact-inner h2 {
   font-family: 'Caveat', cursive;
   font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
   color: var(--pistachio);
   margin-bottom: 36px;
 }
@@ -1465,8 +1468,7 @@ white-space: nowrap;
   .tagline-divider {
     display: block;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc((var(--rail) - 44px) / 2);
     top: calc(var(--rail) + clamp(88px, 14.5vw, 120px));
     z-index: 102;
     width: 44px;
