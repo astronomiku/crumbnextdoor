@@ -1215,10 +1215,15 @@ white-space: nowrap;
   margin-bottom: 12px;
 }
 
-/* Banana muffins is a wide, low photo (three muffins in a row) — keep its
-   frame proportioned to that instead of forcing it into a square. */
+/* Banana muffins and cinnamon rolls are both wide, low photos — keep their
+   frames proportioned to the actual photo instead of forcing a square,
+   otherwise they'd only fill a thin strip through the middle of the box. */
 .menu-item > img[src$="bananamuffins.png"] {
   aspect-ratio: 1.9 / 1;
+}
+
+.menu-item > img[src$="cinnamonrolls.png"] {
+  aspect-ratio: 2 / 1;
 }
 
 .menu-item > div:not(.menu-price) {
