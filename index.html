@@ -199,26 +199,23 @@
       margin-bottom: 18px;
     }
 
-    .promo-subheading {
-      font-weight: 600;
-      color: #4A2C1D;
-      margin-bottom: 12px;
+    .promo-cta {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 12px 32px;
+      background: #4A2C1D;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
       font-size: .9rem;
-    }
-
-    .promo-list {
-      list-style: none;
-      text-align: left;
-      display: inline-flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .promo-list li {
-      color: #B67A4B;
       font-weight: 600;
-      font-size: .92rem;
-      line-height: 1.4;
+      letter-spacing: .04em;
+      transition: background .2s ease, transform .15s ease;
+    }
+
+    .promo-cta:hover {
+      background: #8F9C5A;
+      transform: translateY(-1px);
     }
 
   :root {
@@ -1857,17 +1854,11 @@ white-space: nowrap;
     <div class="promo-card">
       <button type="button" id="promoClose" class="promo-close" aria-label="Close promo">✕</button>
       <img src="assets/birthdaycookie.png" alt="Birthday Cookie" class="promo-image">
-      <p class="promo-heading">🎉 1st Anniversary Giveaway 🎉</p>
+      <p class="promo-heading">It's our First Anniversary!</p>
       <p class="promo-body">
-        To celebrate Crumb Next Door's 1st anniversary, we're giving away
-        FREE Birthday Cookies all month long to thank you for making our
-        first year so special!
+        We're giving away FREE Birthday Cookies all month long!
       </p>
-      <p class="promo-subheading">Here's how to claim your birthday treat:</p>
-      <ul class="promo-list">
-        <li>Spend ₱800 min. ➔ Get 1 FREE Birthday Cookie 🍪</li>
-        <li>Spend ₱1,500 min. ➔ Get 3 FREE Birthday Cookies 🍪🍪🍪</li>
-      </ul>
+      <a class="promo-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform" target="_blank" rel="noopener">Order now!</a>
     </div>
   </div>
 
