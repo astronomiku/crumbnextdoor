@@ -1691,7 +1691,7 @@ white-space: nowrap;
 
 @media (max-width: 559px) {
   #about {
-    padding: clamp(34px, 10vw, 48px) clamp(16px, 5vw, 24px) 48px;
+    padding: clamp(34px, 10vw, 48px) clamp(16px, 5vw, 24px) 48px calc(var(--rail) + clamp(16px, 5vw, 24px));
   }
 
   .about-grid {
@@ -2009,7 +2009,11 @@ white-space: nowrap;
   const introVideo = document.getElementById('introVideo');
   const introSkip = document.getElementById('introVideoSkip');
 
-  if (introOverlay && introVideo) {
+  // Birthday cookie intro video — same October-only condition as the order
+  // button image. Outside October it never shows at all.
+  if (introOverlay && new Date().getMonth() !== 9) {
+    introOverlay.remove();
+  } else if (introOverlay && introVideo) {
     document.body.style.overflow = 'hidden';
 
     // Lock the box to the video's real proportions once known, instead of
@@ -2028,13 +2032,15 @@ white-space: nowrap;
       setTimeout(() => introOverlay.remove(), 500);
     };
 
-    introVideo.addEventListener('ended', closeIntro);
+    // Hold on the last frame for 4 extra seconds once the video finishes,
+    // instead of closing the instant it ends.
+    introVideo.addEventListener('ended', () => setTimeout(closeIntro, 4000));
     introVideo.addEventListener('error', closeIntro);
     introSkip.addEventListener('click', closeIntro);
 
     // Safety net: close it anyway if the video can't load or play
     // (blocked autoplay, slow connection, missing file, etc.)
-    setTimeout(closeIntro, 10000);
+    setTimeout(closeIntro, 20000);
   }
 
   const observer = new IntersectionObserver((entries) => {
