@@ -92,6 +92,7 @@
       width: auto;
       height: min(78vh, 640px);
       max-width: 90vw;
+      aspect-ratio: 9 / 16;
       display: block;
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(74, 44, 29, .35);
@@ -2010,6 +2011,16 @@ white-space: nowrap;
 
   if (introOverlay && introVideo) {
     document.body.style.overflow = 'hidden';
+
+    // Lock the box to the video's real proportions once known, instead of
+    // relying on the browser to derive width:auto from the video's
+    // intrinsic ratio (unreliable across browsers and causes black
+    // letterbox bars when it guesses wrong).
+    introVideo.addEventListener('loadedmetadata', () => {
+      if (introVideo.videoWidth && introVideo.videoHeight) {
+        introVideo.style.aspectRatio = introVideo.videoWidth + ' / ' + introVideo.videoHeight;
+      }
+    });
 
     const closeIntro = () => {
       introOverlay.classList.add('hide');
