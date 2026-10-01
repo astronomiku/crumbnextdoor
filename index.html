@@ -71,6 +71,142 @@
       border: 0;
     }
 
+    .intro-video-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .5s ease;
+    }
+
+    .intro-video-overlay.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .intro-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .intro-video-skip {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10001;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+
+    .intro-video-skip:hover {
+      background: rgba(255,255,255,.3);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro-video-overlay {
+        display: none;
+      }
+    }
+
+    .promo-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(59, 56, 39, .55);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+
+    .promo-overlay.show {
+      display: flex;
+    }
+
+    .promo-overlay.show.visible {
+      opacity: 1;
+    }
+
+    .promo-card {
+      position: relative;
+      background: #FBF7EE;
+      border-radius: 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 40px 32px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(74, 44, 29, .25);
+    }
+
+    .promo-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(74, 44, 29, .08);
+      color: #4A2C1D;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .promo-close:hover {
+      background: rgba(74, 44, 29, .16);
+    }
+
+    .promo-heading {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: #8F9C5A;
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .promo-body {
+      color: #7A6E52;
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .promo-subheading {
+      font-weight: 600;
+      color: #4A2C1D;
+      margin-bottom: 12px;
+      font-size: .9rem;
+    }
+
+    .promo-list {
+      list-style: none;
+      text-align: left;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .promo-list li {
+      color: #B67A4B;
+      font-weight: 600;
+      font-size: .92rem;
+      line-height: 1.4;
+    }
+
   :root {
   --cream: #ffffff;
   --ink: #3B3827;
@@ -1589,6 +1725,97 @@ white-space: nowrap;
   justify-content: center;
 }
 
+/* About is sized against the space that is actually available beside the
+   fixed brand rail. This keeps it readable instead of squeezing desktop
+   dimensions into a narrow window. */
+@media (min-width: 560px) and (max-width: 899px) {
+  #about {
+    padding: 46px 18px 58px calc(var(--rail) + 18px);
+  }
+
+  .about-grid {
+    width: 100%;
+    max-width: 520px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(18px, 4vw, 28px);
+  }
+
+  .about-image-wrap,
+  .about-text {
+    width: 100%;
+    max-width: min(100%, 460px);
+  }
+
+  .owners-photo {
+    width: min(100%, 420px);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-text h2 {
+    font-size: clamp(2.5rem, 8vw, 3.75rem);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  .about-text p {
+    font-size: clamp(.84rem, 2vw, .96rem);
+    line-height: 1.62;
+  }
+
+  .about-flour {
+    width: min(620px, 100vw);
+    right: -38%;
+    bottom: -80px;
+    opacity: .08;
+  }
+}
+
+@media (max-width: 559px) {
+  #about {
+    padding: clamp(34px, 10vw, 48px) clamp(16px, 5vw, 24px) 48px;
+  }
+
+  .about-grid {
+    width: 100%;
+    max-width: 440px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .about-image-wrap,
+  .about-text {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .owners-photo {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+  }
+
+  .about-text h2 {
+    font-size: clamp(2.65rem, 14vw, 3.6rem);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .about-text p {
+    font-size: clamp(.88rem, 4vw, .96rem);
+    line-height: 1.62;
+    margin-bottom: 15px;
+  }
+
+  .about-flour {
+    width: min(430px, 112vw);
+    right: -45%;
+    bottom: -45px;
+    opacity: .06;
+  }
+}
+
     @media (prefers-reduced-motion: reduce) {
       .ticker-inner {
         animation: none;
@@ -1606,6 +1833,28 @@ white-space: nowrap;
 </head>
 
 <body>
+
+  <div id="introVideoOverlay" class="intro-video-overlay">
+    <button type="button" id="introVideoSkip" class="intro-video-skip" aria-label="Skip intro video">Skip ✕</button>
+    <video id="introVideo" class="intro-video" src="assets/crumbvideo.mp4" autoplay muted playsinline></video>
+  </div>
+
+  <div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+    <div class="promo-card">
+      <button type="button" id="promoClose" class="promo-close" aria-label="Close promo">✕</button>
+      <p class="promo-heading">🎉 1st Anniversary Giveaway 🎉</p>
+      <p class="promo-body">
+        To celebrate Crumb Next Door's 1st anniversary, we're giving away
+        FREE Birthday Cookies all month long to thank you for making our
+        first year so special!
+      </p>
+      <p class="promo-subheading">Here's how to claim your birthday treat:</p>
+      <ul class="promo-list">
+        <li>Spend ₱800 min. ➔ Get 1 FREE Birthday Cookie 🍪</li>
+        <li>Spend ₱1,500 min. ➔ Get 3 FREE Birthday Cookies 🍪🍪🍪</li>
+      </ul>
+    </div>
+  </div>
 
   <h1 class="sr-only">Crumb Next Door — Home Bakery in Parañaque, Philippines</h1>
 
@@ -1843,6 +2092,52 @@ white-space: nowrap;
   }
   window.scrollTo(0, 0);
   window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
+  const introOverlay = document.getElementById('introVideoOverlay');
+  const introVideo = document.getElementById('introVideo');
+  const introSkip = document.getElementById('introVideoSkip');
+  const promoOverlay = document.getElementById('promoOverlay');
+  const promoClose = document.getElementById('promoClose');
+
+  const showPromo = () => {
+    if (!promoOverlay) return;
+    promoOverlay.classList.add('show');
+    promoOverlay.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => promoOverlay.classList.add('visible'));
+  };
+
+  if (promoOverlay && promoClose) {
+    promoClose.addEventListener('click', () => {
+      promoOverlay.classList.remove('visible');
+      setTimeout(() => {
+        promoOverlay.classList.remove('show');
+        promoOverlay.setAttribute('aria-hidden', 'true');
+      }, 350);
+    });
+  }
+
+  if (introOverlay && introVideo) {
+    document.body.style.overflow = 'hidden';
+
+    const closeIntro = () => {
+      introOverlay.classList.add('hide');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        introOverlay.remove();
+        showPromo();
+      }, 500);
+    };
+
+    introVideo.addEventListener('ended', closeIntro);
+    introVideo.addEventListener('error', closeIntro);
+    introSkip.addEventListener('click', closeIntro);
+
+    // Safety net: close it anyway if the video can't load or play
+    // (blocked autoplay, slow connection, missing file, etc.)
+    setTimeout(closeIntro, 10000);
+  } else {
+    showPromo();
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
