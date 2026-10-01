@@ -75,10 +75,11 @@
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: #000;
+      background: rgba(59, 56, 39, .78);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 24px;
       transition: opacity .5s ease;
     }
 
@@ -88,8 +89,13 @@
     }
 
     .intro-video {
-      width: 100%;
-      height: 100%;
+      width: auto;
+      height: auto;
+      max-width: min(90vw, 420px);
+      max-height: 78vh;
+      display: block;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(74, 44, 29, .35);
       object-fit: contain;
     }
 
@@ -168,6 +174,14 @@
 
     .promo-close:hover {
       background: rgba(74, 44, 29, .16);
+    }
+
+    .promo-image {
+      width: clamp(96px, 22vw, 130px);
+      height: auto;
+      display: block;
+      margin: 0 auto 14px;
+      object-fit: contain;
     }
 
     .promo-heading {
@@ -1842,6 +1856,7 @@ white-space: nowrap;
   <div id="promoOverlay" class="promo-overlay" aria-hidden="true">
     <div class="promo-card">
       <button type="button" id="promoClose" class="promo-close" aria-label="Close promo">✕</button>
+      <img src="assets/birthdaycookie.png" alt="Birthday Cookie" class="promo-image">
       <p class="promo-heading">🎉 1st Anniversary Giveaway 🎉</p>
       <p class="promo-body">
         To celebrate Crumb Next Door's 1st anniversary, we're giving away
