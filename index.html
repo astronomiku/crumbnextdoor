@@ -125,99 +125,6 @@
       }
     }
 
-    .promo-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(59, 56, 39, .55);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      transition: opacity .35s ease;
-    }
-
-    .promo-overlay.show {
-      display: flex;
-    }
-
-    .promo-overlay.show.visible {
-      opacity: 1;
-    }
-
-    .promo-card {
-      position: relative;
-      background: #FBF7EE;
-      border-radius: 24px;
-      max-width: 440px;
-      width: 100%;
-      padding: 40px 32px 32px;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(74, 44, 29, .25);
-    }
-
-    .promo-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(74, 44, 29, .08);
-      color: #4A2C1D;
-      font-size: 1rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .promo-close:hover {
-      background: rgba(74, 44, 29, .16);
-    }
-
-    .promo-image {
-      width: clamp(96px, 22vw, 130px);
-      height: auto;
-      display: block;
-      margin: 0 auto 14px;
-      object-fit: contain;
-    }
-
-    .promo-heading {
-      font-family: 'Caveat', cursive;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      color: #8F9C5A;
-      margin-bottom: 14px;
-      line-height: 1.1;
-    }
-
-    .promo-body {
-      color: #7A6E52;
-      font-size: .95rem;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .promo-cta {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 12px 32px;
-      background: #4A2C1D;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      font-size: .9rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      transition: background .2s ease, transform .15s ease;
-    }
-
-    .promo-cta:hover {
-      background: #8F9C5A;
-      transform: translateY(-1px);
-    }
-
   :root {
   --cream: #ffffff;
   --ink: #3B3827;
@@ -1847,19 +1754,7 @@ white-space: nowrap;
 
   <div id="introVideoOverlay" class="intro-video-overlay">
     <button type="button" id="introVideoSkip" class="intro-video-skip" aria-label="Skip intro video">Skip ✕</button>
-    <video id="introVideo" class="intro-video" src="assets/crumbvideo.mp4" autoplay muted playsinline></video>
-  </div>
-
-  <div id="promoOverlay" class="promo-overlay" aria-hidden="true">
-    <div class="promo-card">
-      <button type="button" id="promoClose" class="promo-close" aria-label="Close promo">✕</button>
-      <img src="assets/birthdaycookie.png" alt="Birthday Cookie" class="promo-image">
-      <p class="promo-heading">It's our First Anniversary!</p>
-      <p class="promo-body">
-        We're giving away FREE Birthday Cookies all month long!
-      </p>
-      <a class="promo-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfZVOfiu6Cu2_3wOu9CRxI44HL1wJNuQgSPqmo8g1ofEWTTQg/viewform" target="_blank" rel="noopener">Order now!</a>
-    </div>
+    <video id="introVideo" class="intro-video" src="assets/birthdaycookie.mp4" autoplay muted playsinline></video>
   </div>
 
   <h1 class="sr-only">Crumb Next Door — Home Bakery in Parañaque, Philippines</h1>
@@ -2113,25 +2008,6 @@ white-space: nowrap;
   const introOverlay = document.getElementById('introVideoOverlay');
   const introVideo = document.getElementById('introVideo');
   const introSkip = document.getElementById('introVideoSkip');
-  const promoOverlay = document.getElementById('promoOverlay');
-  const promoClose = document.getElementById('promoClose');
-
-  const showPromo = () => {
-    if (!promoOverlay) return;
-    promoOverlay.classList.add('show');
-    promoOverlay.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(() => promoOverlay.classList.add('visible'));
-  };
-
-  if (promoOverlay && promoClose) {
-    promoClose.addEventListener('click', () => {
-      promoOverlay.classList.remove('visible');
-      setTimeout(() => {
-        promoOverlay.classList.remove('show');
-        promoOverlay.setAttribute('aria-hidden', 'true');
-      }, 350);
-    });
-  }
 
   if (introOverlay && introVideo) {
     document.body.style.overflow = 'hidden';
@@ -2139,10 +2015,7 @@ white-space: nowrap;
     const closeIntro = () => {
       introOverlay.classList.add('hide');
       document.body.style.overflow = '';
-      setTimeout(() => {
-        introOverlay.remove();
-        showPromo();
-      }, 500);
+      setTimeout(() => introOverlay.remove(), 500);
     };
 
     introVideo.addEventListener('ended', closeIntro);
@@ -2152,8 +2025,6 @@ white-space: nowrap;
     // Safety net: close it anyway if the video can't load or play
     // (blocked autoplay, slow connection, missing file, etc.)
     setTimeout(closeIntro, 10000);
-  } else {
-    showPromo();
   }
 
   const observer = new IntersectionObserver((entries) => {
