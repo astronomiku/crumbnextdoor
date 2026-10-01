@@ -1896,7 +1896,7 @@ white-space: nowrap;
       <textPath href="#orderCircle" startOffset="0%" textLength="280" lengthAdjust="spacingAndGlyphs">ORDER NOW • ORDER NOW • ORDER NOW • ORDER NOW •</textPath>
     </text>
   </svg>
-  <img src="assets/cookiewhite.png" alt="Order now">
+  <img src="assets/cookiewhite.png" alt="Order now" id="orderFabImg">
 </a>
 
 <section id="oven">
@@ -2098,6 +2098,17 @@ white-space: nowrap;
   }
   window.scrollTo(0, 0);
   window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
+  // Birthday cookie promo on the order button — only shows during October,
+  // then automatically reverts to the regular cookie the rest of the year.
+  const orderFabImg = document.getElementById('orderFabImg');
+  if (orderFabImg) {
+    const now = new Date();
+    if (now.getMonth() === 9) {
+      orderFabImg.src = 'assets/birthdaycookie.png';
+      orderFabImg.alt = 'Order now — free birthday cookie this October';
+    }
+  }
 
   const introOverlay = document.getElementById('introVideoOverlay');
   const introVideo = document.getElementById('introVideo');
